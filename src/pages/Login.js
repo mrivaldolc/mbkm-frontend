@@ -10,7 +10,7 @@
 
 // export default Login
 
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 // import backgroundImage from './background.jpg'; // Sesuaikan dengan path gambar Anda
@@ -21,16 +21,26 @@ const Login = () => {
   const [msg, setMsg] = useState('');
   const history = useHistory();
 
-  const Auth = async(e) => {
+  const Auth = async (e) => {
     e.preventDefault();
+    console.log('Email:', email);
+    console.log('Password:', password);
     try {
-      await axios.post('http:/localhost:3000/login',{
+      const response = await axios.post('api/v1/user/login', {
         email: email,
         password: password,
       });
-      history.push("/dashboard");
-    } catch (error){
-      if (error.response){
+
+      // Check if the registration is successful based on the response status
+      if (response.status === 200) {
+        // If successful, navigate to "/"
+        history.push("/dashboard");
+      } else {
+        // Handle other status codes if needed
+        console.log('Login failed');
+      }
+    } catch (error) {
+      if (error.response) {
         console.log(error.response.data.msg)
         setMsg(error.response.data.msg)
       }
@@ -42,7 +52,7 @@ const Login = () => {
   //   // Tambahkan logika login di sini
   //   console.log("Username:", username);
   //   console.log("Password:", password);
-    
+
   // };
 
   return (

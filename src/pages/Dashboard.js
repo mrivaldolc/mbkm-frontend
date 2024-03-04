@@ -2,35 +2,165 @@ import React,{useState, useEffect} from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 // import jwt_decode from "jwt-decode";
+import { Button } from 'antd';
+import Sidebar from '../components/common/NavigationBar';
+import Layout from '../components/layout/Layout';
+import { Table, Tag } from 'antd';
 
 const Dashboard = () => {
-    // const [name, setName] = useState('');
-    // const [token, setToken] = useState('');
+  const tagColors = {
+    'Selesai': 'green',
+    'Diproses': 'geekblue',
+    'Ditolak': 'volcano'
+  };
 
-    // useEffect(() => {
-    //     refreshToken();
-    // },[]);
-
-    // const refreshToken = async() => {
-    //     try{
-    //         const response = await axios.get('');
-    //         setToken(response.data.accessToken);
-    //         const decode = jwt_decode(response.data.accessToken);
-    //         console.log(decode);
-    //     }catch (error) {
-
-    //     }
-    // }
-    console.log("TEST")
-    const endpoint = "https://31de-118-99-116-253.ngrok-free.app/api/v1/user/hello"
-    fetch(endpoint)
-    // .then((data) => data.json())
-    .then((result) => console.log(result))
+  const columns = [
+    {
+      title: 'NAMA',
+      width: 100,
+      dataIndex: 'name',
+      key: 'name',
+      // fixed: 'left',
+    },
+    {
+      title: 'NIM',
+      width: 100,
+      dataIndex: 'nim',
+      key: 'age',
+      // fixed: 'left',
+    },
+    {
+      title: 'KELAS',
+      dataIndex: 'kelas',
+      key: '1',
+      width: 150,
+    },
+    {
+      title: 'CV',
+      key: 'operation',
+      // fixed: 'right',
+      width: 100,
+      render: () => <a>KLIK</a>,
+    },
+    {
+      title: 'IPK',
+      dataIndex: 'ipk',
+      key: '3',
+      width: 150,
+    },
+    {
+      title: 'TOTAL SKS',
+      dataIndex: 'sks',
+      key: '4',
+      width: 150,
+    },
+    {
+      title: 'STATUS',
+      dataIndex: 'tags',
+      key: '5',
+      width: 150,
+      render: (tags) => (
+        <span>
+          {tags.map((tag) => {
+            const color = tagColors[tag];
+            return (
+              <Tag color={color} key={tag}>
+                {tag.toUpperCase()}
+              </Tag>
+            );
+          })}
+        </span>
+      ),
+    },
+    {
+      title: 'Action',
+      key: 'operation',
+      // fixed: 'right',
+      width: 100,
+      render: () => <a>EDIT</a>,
+    },
+  ];
+  // const data = [];
+  // for (let i = 0; i < 100; i++) {
+  //   data.push({
+  //     key: i,
+  //     name: `Edward ${i}`,
+  //     age: 32,
+  //     address: `London Park no. ${i}`,
+  //   });
+  // } 
+  const data = [
+    {
+      key: '1',
+      name: 'Fredy Samboro',
+      nim: '1202230143',
+      kelas: 'SI-19-46',
+      ipk: '3,61',
+      sks: '120',
+      tags: ['Ditolak'],
+    },
+    {
+      key: '2',
+      name: 'Asep Sumedang',
+      nim: '1202230523',
+      kelas: 'SI-19-46',
+      ipk: '3,21',
+      sks: '120',
+      tags: ['Diproses'],
+    },
+    {
+      key: '3',
+      name: 'Kaget Budiman',
+      nim: '1202230612',
+      kelas: 'SI-19-46',
+      ipk: '3,53',
+      sks: '115',
+      tags: ['SELESAI'],
+    },
+    {
+      key: '1',
+      name: 'Fredy Samboro',
+      nim: '1202230143',
+      kelas: 'SI-19-46',
+      ipk: '3,61',
+      sks: '120',
+      tags: ['Ditolak'],
+    },
+    {
+      key: '2',
+      name: 'Asep Sumedang',
+      nim: '1202230523',
+      kelas: 'SI-19-46',
+      ipk: '3,21',
+      sks: '120',
+      tags: ['Diproses'],
+    },
+    {
+      key: '3',
+      name: 'Kaget Budiman',
+      nim: '1202230612',
+      kelas: 'SI-19-46',
+      ipk: '3,53',
+      sks: '115',
+      tags: ['SELESAI'],
+    },
+  ];
 
   return (
-    <div>
-      <h1>ini dashboard</h1>
-    </div>
+    <Layout>
+      <div className="ml-3 mb-5">
+					<h4 className="font-bold text-2xl">PENDAFTAR</h4>
+				</div>
+      <Table
+      columns={columns}
+      dataSource={data}
+      pagination
+      scroll={{
+        x: 1500,
+        y: 300,
+      }}
+    />
+    </Layout>
   )
 }
 

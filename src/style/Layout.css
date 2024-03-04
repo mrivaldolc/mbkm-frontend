@@ -1,0 +1,16 @@
+.main-content {
+    margin: 3px 16px;
+    padding: 24px;
+    background: #fff;
+    min-height: 280px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+.bread-crumb {
+margin: 10px 16px;
+padding: 10px;
+background: #fff;
+min-height: 10px;
+border: 1px solid #ccc;
+border-radius: 10px;
+}
