@@ -5,161 +5,16 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { Button } from 'antd';
 import Sidebar from '../components/common/NavigationBar';
 import Layout from '../components/layout/Layout';
+import EditIcon from "../assets/image/edit-icon.svg";
 import { Table, Tag } from 'antd';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 const Dashboard = () => {
-  const tagColors = {
-    'Selesai': 'green',
-    'Diproses': 'geekblue',
-    'Ditolak': 'volcano'
-  };
-
-  const columns = [
-    {
-      title: 'NAMA',
-      width: 100,
-      dataIndex: 'name',
-      key: 'name',
-      // fixed: 'left',
-    },
-    {
-      title: 'NIM',
-      width: 100,
-      dataIndex: 'nim',
-      key: 'age',
-      // fixed: 'left',
-    },
-    {
-      title: 'KELAS',
-      dataIndex: 'kelas',
-      key: '1',
-      width: 150,
-    },
-    {
-      title: 'CV',
-      key: 'operation',
-      // fixed: 'right',
-      width: 100,
-      render: () => <a>KLIK</a>,
-    },
-    {
-      title: 'IPK',
-      dataIndex: 'ipk',
-      key: '3',
-      width: 150,
-    },
-    {
-      title: 'TOTAL SKS',
-      dataIndex: 'sks',
-      key: '4',
-      width: 150,
-    },
-    {
-      title: 'STATUS',
-      dataIndex: 'tags',
-      key: '5',
-      width: 150,
-      render: (tags) => (
-        <span>
-          {tags.map((tag) => {
-            const color = tagColors[tag];
-            return (
-              <Tag color={color} key={tag}>
-                {tag.toUpperCase()}
-              </Tag>
-            );
-          })}
-        </span>
-      ),
-    },
-    {
-      title: 'Action',
-      key: 'operation',
-      // fixed: 'right',
-      width: 100,
-      render: () => <a>EDIT</a>,
-    },
-  ];
-  // const data = [];
-  // for (let i = 0; i < 100; i++) {
-  //   data.push({
-  //     key: i,
-  //     name: `Edward ${i}`,
-  //     age: 32,
-  //     address: `London Park no. ${i}`,
-  //   });
-  // } 
-  const data = [
-    {
-      key: '1',
-      name: 'Fredy Samboro',
-      nim: '1202230143',
-      kelas: 'SI-19-46',
-      ipk: '3,61',
-      sks: '120',
-      tags: ['Ditolak'],
-    },
-    {
-      key: '2',
-      name: 'Asep Sumedang',
-      nim: '1202230523',
-      kelas: 'SI-19-46',
-      ipk: '3,21',
-      sks: '120',
-      tags: ['Diproses'],
-    },
-    {
-      key: '3',
-      name: 'Kaget Budiman',
-      nim: '1202230612',
-      kelas: 'SI-19-46',
-      ipk: '3,53',
-      sks: '115',
-      tags: ['SELESAI'],
-    },
-    {
-      key: '1',
-      name: 'Fredy Samboro',
-      nim: '1202230143',
-      kelas: 'SI-19-46',
-      ipk: '3,61',
-      sks: '120',
-      tags: ['Ditolak'],
-    },
-    {
-      key: '2',
-      name: 'Asep Sumedang',
-      nim: '1202230523',
-      kelas: 'SI-19-46',
-      ipk: '3,21',
-      sks: '120',
-      tags: ['Diproses'],
-    },
-    {
-      key: '3',
-      name: 'Kaget Budiman',
-      nim: '1202230612',
-      kelas: 'SI-19-46',
-      ipk: '3,53',
-      sks: '115',
-      tags: ['SELESAI'],
-    },
-  ];
 
   return (
     <Layout>
-      <div className="ml-3 mb-5">
-					<h4 className="font-bold text-2xl">PENDAFTAR</h4>
-				</div>
-      <Table
-      columns={columns}
-      dataSource={data}
-      pagination
-      scroll={{
-        x: 1500,
-        y: 300,
-      }}
-    />
+      <div className="div"></div>
     </Layout>
   )
 }

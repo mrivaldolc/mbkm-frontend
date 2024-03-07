@@ -155,7 +155,7 @@ const items = [
     icon: <UserOutlined />,
     label: 'Registrasi',
     children: [
-      getItem('Pendaftaran MBKM', '2', null, null, '/pendaftaran'),
+      getItem('Pendaftaran MBKM', '2', null, null, '/user-index'),
       getItem('Status', '3', null, null, '/status'),
     ],
   },
