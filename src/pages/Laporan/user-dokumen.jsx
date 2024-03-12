@@ -30,7 +30,7 @@ const userIndex = () => {
   
 
   return (
-    <Layout>
+    <>
       <div className="ml-3 mr-3">
                 <h1 className='font-bold text-2xl mb-8'>LAPORAN MBKM</h1>
 
@@ -88,7 +88,7 @@ const userIndex = () => {
             </Row>
           </Form>
       </div>
-    </Layout>
+    </>
   )
 }
 

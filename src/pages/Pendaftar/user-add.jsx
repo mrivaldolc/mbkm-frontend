@@ -36,7 +36,7 @@ const UserAdd = () => {
       };
 
   return (
-    <Layout>
+    <>
             <div className="ml-3 mr-3">
                 <h1 className='font-bold text-2xl mb-8'>DAFTAR MBKM</h1>
             
@@ -212,7 +212,7 @@ const UserAdd = () => {
 
             </Form>
             </div>
-        </Layout>
+        </>
   )
 }
 

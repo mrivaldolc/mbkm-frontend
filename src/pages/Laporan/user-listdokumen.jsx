@@ -3,6 +3,7 @@ import Layout from '../../components/layout/Layout';
 import { Table, Tag } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+import { NavLink } from 'react-router-dom';
 
 const userListdokumen = () => {
     const tagColors = {
@@ -73,14 +74,16 @@ const userListdokumen = () => {
         },
       ];
   return (
-    <Layout>
+    <>
         <div className="ml-3 ">
             <h4 className="font-bold text-2xl">LAPORAN MBKM</h4>
         </div>
         <div className="flex justify-end mb-5 mr-2">
-            <button className='px-3 py-2 bg-blue-500 text-white flex flex-row items-center rounded-md'>
-                <div>TAMBAH</div>
-            </button>
+        <NavLink to="/user-dokumen">
+          <button className='px-3 py-2 bg-blue-500 text-white flex flex-row items-center rounded-md'>
+            <div>TAMBAH</div>
+          </button>
+      </NavLink>
         </div>
       <Table
       columns={columns}
@@ -91,7 +94,7 @@ const userListdokumen = () => {
         y: 300,
       }}
     />
-    </Layout>
+    </>
   )
 }
 

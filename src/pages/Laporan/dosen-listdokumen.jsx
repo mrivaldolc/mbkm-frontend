@@ -1,8 +1,9 @@
 import React from 'react'
-import Layout from '../../components/layout/Layout';
+// import Layout from '../../components/layout/Layout';
 import { Table, Tag } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+// import { Link } from 'react-router-dom';
 
 const dosenListdokumen = () => {
     const tagColors = {
@@ -58,6 +59,12 @@ const dosenListdokumen = () => {
           ),
         },
         {
+          title: 'NILAI',
+          dataIndex: 'nilai',
+          key: '1',
+          width: 100,
+        },
+        {
           title: 'Action',
           key: 'operation',
           // fixed: 'right',
@@ -92,6 +99,7 @@ const dosenListdokumen = () => {
             nim: '1202230143',
             kelas: 'SI-19-46',
             tags: ['Ditolak'],
+            nilai:'80'
           },
           {
             key: '2',
@@ -99,6 +107,7 @@ const dosenListdokumen = () => {
             nim: '1202230523',
             kelas: 'SI-19-46',
             tags: ['Diproses'],
+            nilai:'90'
           },
           {
             key: '3',
@@ -106,6 +115,7 @@ const dosenListdokumen = () => {
             nim: '1202230612',
             kelas: 'SI-19-46',
             tags: ['SELESAI'],
+            nilai:'85'
           },
           {
             key: '1',
@@ -113,6 +123,7 @@ const dosenListdokumen = () => {
             nim: '1202230143',
             kelas: 'SI-19-46',
             tags: ['Ditolak'],
+            nilai:'80'
           },
           {
             key: '2',
@@ -120,6 +131,7 @@ const dosenListdokumen = () => {
             nim: '1202230523',
             kelas: 'SI-19-46',
             tags: ['Diproses'],
+            nilai:'80'
           },
           {
             key: '3',
@@ -127,6 +139,7 @@ const dosenListdokumen = () => {
             nim: '1202230612',
             kelas: 'SI-19-46',
             tags: ['SELESAI'],
+            nilai:'80'
           },
           {
             key: '1',
@@ -165,7 +178,7 @@ const dosenListdokumen = () => {
           },
       ];
   return (
-    <Layout>
+    <>
         <div className="ml-3 ">
             <h4 className="font-bold text-2xl">DAFTAR LAPORAN MBKM</h4>
         </div>
@@ -183,7 +196,7 @@ const dosenListdokumen = () => {
         y: 300,
       }}
     />
-    </Layout>
+    </>
   )
 }
 

@@ -158,7 +158,7 @@ const dosenListdaftar = () => {
   ];
 
   return (
-    <Layout>
+    <>
       <div className="ml-3 mb-5">
 					<h4 className="font-bold text-2xl">PENDAFTAR</h4>
 				</div>
@@ -171,7 +171,7 @@ const dosenListdaftar = () => {
         y: 300,
       }}
     />
-    </Layout>
+    </>
   )
 }
 

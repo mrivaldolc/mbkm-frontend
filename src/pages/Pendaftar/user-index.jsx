@@ -5,6 +5,7 @@ import Layout from '../../components/layout/Layout';
 import { Table, Tag } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+import { NavLink } from 'react-router-dom';
 
 const Pendaftaran = () => {
   const tagColors = {
@@ -81,12 +82,12 @@ const Pendaftaran = () => {
         {/* <img src="../assets/image/edit-icon.svg" alt="" />, */}
         {/* <FontAwesomeIcon icon="fa-solid fa-user" />
          */}
-         <button>
-          <a href="http://">
-            <FontAwesomeIcon icon={faPenToSquare} />
-           </a>
-          
-         </button>
+         <NavLink to="/user-edit">
+          <button>
+              <FontAwesomeIcon icon={faPenToSquare} />
+          </button>
+        </NavLink>
+         
       </div>
     },
   ];
@@ -112,14 +113,16 @@ const Pendaftaran = () => {
   ];
 
   return (
-    <Layout>
+    <>
       <div className="ml-3 ">
             <h4 className="font-bold text-2xl">PENDAFTARAN MBKM</h4>
         </div>
         <div className="flex justify-end mb-5 mr-2">
-            <button className='px-3 py-2 bg-blue-500 text-white flex flex-row items-center rounded-md'>
-                <div>DAFTAR</div>
-            </button>
+        <NavLink to="/user-add">
+          <button className='px-3 py-2 bg-blue-500 text-white flex flex-row items-center rounded-md'>
+            <div>TAMBAH</div>
+          </button>
+        </NavLink>
         </div>
       <Table
       columns={columns}
@@ -130,7 +133,7 @@ const Pendaftaran = () => {
         y: 300,
       }}
     />
-    </Layout>
+    </>
   )
 }
 

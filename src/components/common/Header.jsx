@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -32,12 +33,15 @@ const Header = () => {
         {isDropdownOpen && (
           <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
             <div className="py-1">
+              <NavLink to="Register">
+
               <button
                 className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-200 w-full text-left"
                 onClick={handleLogout}
-              >
+                >
                 Profil
               </button>
+                </NavLink>
               <button
                 className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-200 w-full text-left"
                 onClick={handleLogout}

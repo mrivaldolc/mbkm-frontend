@@ -108,6 +108,11 @@
 // export default Sidebar;
 
 
+
+
+
+
+
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import {
@@ -150,16 +155,27 @@ const items = [
     content: <Logo />,
   },
   getItem('Beranda', '1', <PieChartOutlined />, null, '/dashboard'),
+  
   {
     key: 'sub1',
     icon: <UserOutlined />,
     label: 'Registrasi',
     children: [
       getItem('Pendaftaran MBKM', '2', null, null, '/user-index'),
-      getItem('Status', '3', null, null, '/status'),
+      // getItem('Status', '3', null, null, ''),
     ],
   },
-  getItem('Profil', '4', <FileOutlined />, null, '/profil'),
+  getItem('Laporan', '4', <FileOutlined />, null, '/user-listdokumen'),
+
+  {
+    key: 'sub2',
+    icon: <UserOutlined />,
+    label: 'Menu Dosen',
+    children: [
+      getItem('Pendaftar MBKM', '5', null, null, '/dosen-listdaftar'),
+      getItem('Laporan Peserta', '6', null, null, '/dosen-listdokumen'),
+    ],
+  },
 ];
 
 const Sidebar = () => {
@@ -211,22 +227,47 @@ const Sidebar = () => {
           <Switch checked={theme === 'dark'} onChange={toggleTheme} />
         </div>
       </Sider>
-    //   <Layout>
-    //     <Header/>
-    //   </Layout>
-    //   <Layout>
-    //     <Header/>
-    //     <Content style={{ margin: '0 16px' }}>
-    //       <BreadCrumbs/>
-    //       <div style={{ padding: 24, minHeight: 360, background: theme === 'dark' ? '#001529' : '#fff', borderRadius: '12px', color: theme === 'dark' ? '#fff' : '#000' }}>
-    //         Bill is a cat.
-    //       </div>
-    //     </Content>
-    //     <Footer/>
-    //   </Layout>
-    // </Layout>
   );
 };
 
 
 export default Sidebar;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+
+// const Sidebar = () => {
+//   return (
+//     <div className="sidebar">
+//       <h2>Menu</h2>
+//       <ul>
+//         <li>
+//           <Link to="/dashboard">Beranda</Link>
+//         </li>
+//         <li>
+//           <Link to="/user-index">Pendaftaran MBKM</Link>
+//         </li>
+//         <li>
+//           <Link to="/user-listdokumen">Status</Link>
+//         </li>
+//       </ul>
+//     </div>
+//   );
+// };
+
+// export default Sidebar;

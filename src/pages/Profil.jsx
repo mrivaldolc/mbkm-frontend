@@ -6,9 +6,9 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 function Profil() {
   return (
-    <Layout>
+    <>
         <div className=""><h1>Menu Profil</h1></div>
-    </Layout>
+    </>
     // <div>
     //     asdasd
     //     <FontAwesomeIcon icon="fa-solid fa-user" />

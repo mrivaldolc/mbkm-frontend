@@ -13,9 +13,8 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 const Dashboard = () => {
 
   return (
-    <Layout>
-      <div className="div"></div>
-    </Layout>
+      <div className="div">KONTEN</div>
+
   )
 }
 
