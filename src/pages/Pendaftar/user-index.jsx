@@ -2,12 +2,13 @@ import React,{useState, useEffect} from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import Layout from '../../components/layout/Layout';
-import { Table, Tag } from 'antd';
+import { Table, Tag,Input } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom';
 
 const Pendaftaran = () => {
+  const { Search } = Input;
   const tagColors = {
     'Selesai': 'green',
     'Diproses': 'geekblue',
@@ -114,8 +115,24 @@ const Pendaftaran = () => {
 
   return (
     <>
-      <div className="ml-3 ">
+      <div className="ml-3">
             <h4 className="font-bold text-2xl">PENDAFTARAN MBKM</h4>
+        
+        <div className="flex mt-7">
+          <div className="w-full">
+					<Search
+						placeholder="Cari Nama ..."
+						allowClear
+						onSearch={'sendSearchRequest'}
+						className="w-full col-span-3 sm:w-1/3 mb-2"
+						onChange={(e) => {''
+							// const value = e.target.value;
+							// setSearchTerm(value);
+						}}
+						// value={searchTerm}
+            value={""}
+					/>
+          
         </div>
         <div className="flex justify-end mb-5 mr-2">
         <NavLink to="/user-add">
@@ -124,12 +141,14 @@ const Pendaftaran = () => {
           </button>
         </NavLink>
         </div>
+        </div>
+      </div>
       <Table
       columns={columns}
       dataSource={data}
       pagination={false}
       scroll={{
-        x: 1500,
+        // x: 1500,
         y: 300,
       }}
     />

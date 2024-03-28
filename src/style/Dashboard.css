@@ -1,0 +1,10 @@
+.carousel-container {
+    width: 100%; /* Lebar sesuai kebutuhan */
+    margin: auto;
+  }
+  
+  .ant-carousel .slick-dots {
+    position: relative; /* Ubah posisi titik navigasi */
+    bottom: -20px; /* Sesuaikan jarak dari bawah carousel */
+  }
+  

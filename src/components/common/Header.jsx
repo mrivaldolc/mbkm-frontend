@@ -13,7 +13,8 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gray-800 text-white p-4 flex justify-end items-center ">
+    // bg-gray-800
+    <header className="bg-slate-800 text-white p-4 flex justify-end items-center ">
       <div className="relative">
         <button 
           className="inline-flex items-center focus:outline-none" 

@@ -3,11 +3,27 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 // import jwt_decode from "jwt-decode";
 import Layout from '../../components/layout/Layout'
-import { Table, Tag } from 'antd';
+import { Table, Tag, Input } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+import { NavLink } from 'react-router-dom';
 
 const dosenListdaftar = () => {
+  // const [searchTerm, setSearchTerm] = useState("");
+  // const [currentPage, setCurrentPage] = useState(1);
+
+  const onSearch = (value) => {
+    // setSearchTerm(value);
+  };
+  const { Search } = Input;
+
+  const sendSearchRequest = (value) => {
+    onSearch(value);
+    // setCurrentPage(1);
+    // refetch();
+  };
+  
+
   const tagColors = {
     'Selesai': 'green',
     'Diproses': 'geekblue',
@@ -82,12 +98,11 @@ const dosenListdaftar = () => {
         {/* <img src="../assets/image/edit-icon.svg" alt="" />, */}
         {/* <FontAwesomeIcon icon="fa-solid fa-user" />
          */}
-         <button>
-          <a href="http://">
-            <FontAwesomeIcon icon={faPenToSquare} />
-           </a>
-          
-         </button>
+         <NavLink to="/dosen-edit">
+          <button>
+              <FontAwesomeIcon icon={faPenToSquare} />
+          </button>
+        </NavLink>
       </div>
     },
   ];
@@ -159,15 +174,37 @@ const dosenListdaftar = () => {
 
   return (
     <>
-      <div className="ml-3 mb-5">
+      <div className="ml-3">
 					<h4 className="font-bold text-2xl">PENDAFTAR</h4>
-				</div>
+				
+          <div className="flex mt-7">
+          <div className="w-full">
+					<Search
+						placeholder="Cari Nama ..."
+						allowClear
+						onSearch={'sendSearchRequest'}
+						className="w-full col-span-3 sm:w-1/3 mb-2"
+						onChange={(e) => {''
+							// const value = e.target.value;
+							// setSearchTerm(value);
+						}}
+						// value={searchTerm}
+            value={""}
+					/>   
+        </div>
+        <div className="flex justify-end mb-5 mr-2">
+            <button className='px-3 py-2 bg-blue-500 text-white flex flex-row items-center rounded-md'>
+                <div>TAMBAH</div>
+            </button>
+        </div>
+        </div>
+      </div>
       <Table
       columns={columns}
       dataSource={data}
       pagination
       scroll={{
-        x: 1500,
+        // x: 1500,
         y: 300,
       }}
     />

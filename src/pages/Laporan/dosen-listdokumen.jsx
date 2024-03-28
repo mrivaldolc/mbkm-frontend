@@ -1,11 +1,13 @@
 import React from 'react'
 // import Layout from '../../components/layout/Layout';
-import { Table, Tag } from 'antd';
+import { Table, Tag, Input } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
-// import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const dosenListdokumen = () => {
+  const { Search } = Input;
+
     const tagColors = {
         'Selesai': 'green',
         'Diproses': 'geekblue',
@@ -74,12 +76,11 @@ const dosenListdokumen = () => {
             {/* <img src="../assets/image/edit-icon.svg" alt="" />, */}
             {/* <FontAwesomeIcon icon="fa-solid fa-user" />
              */}
-             <button>
-              <a href="http://">
-                <FontAwesomeIcon icon={faPenToSquare} />
-               </a>
-              
-             </button>
+             <NavLink to="/dosen-editdokumen">
+              <button>
+                  <FontAwesomeIcon icon={faPenToSquare} />
+              </button>
+            </NavLink>
           </div>
         },
       ];
@@ -181,12 +182,30 @@ const dosenListdokumen = () => {
     <>
         <div className="ml-3 ">
             <h4 className="font-bold text-2xl">DAFTAR LAPORAN MBKM</h4>
+        
+        <div className="flex mt-7">
+          <div className="w-full">
+					<Search
+						placeholder="Cari Nama ..."
+						allowClear
+						onSearch={'sendSearchRequest'}
+						className="w-full col-span-3 sm:w-1/3 mb-2"
+						onChange={(e) => {''
+							// const value = e.target.value;
+							// setSearchTerm(value);
+						}}
+						// value={searchTerm}
+            value={""}
+					/>
+          
         </div>
         <div className="flex justify-end mb-5 mr-2">
             <button className='px-3 py-2 bg-blue-500 text-white flex flex-row items-center rounded-md'>
                 <div>TAMBAH</div>
             </button>
         </div>
+      </div>
+    </div>
       <Table
       columns={columns}
       dataSource={data}

@@ -48,12 +48,11 @@ const userListdokumen = () => {
             {/* <img src="../assets/image/edit-icon.svg" alt="" />, */}
             {/* <FontAwesomeIcon icon="fa-solid fa-user" />
              */}
-             <button>
-              <a href="http://">
-                <FontAwesomeIcon icon={faPenToSquare} />
-               </a>
-              
-             </button>
+             <NavLink to="/user-editdokumen">
+                <button>
+                    <FontAwesomeIcon icon={faPenToSquare} />
+                </button>
+              </NavLink>
           </div>
         },
       ];
