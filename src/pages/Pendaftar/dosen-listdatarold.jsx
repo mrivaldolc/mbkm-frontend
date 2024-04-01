@@ -1,12 +1,28 @@
 import React,{useState, useEffect} from 'react';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+// import jwt_decode from "jwt-decode";
 import Layout from '../../components/layout/Layout'
 import { Table, Tag, Input } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom';
 
-const DosenListDaftar = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+const dosenListdaftar = () => {
+  // const [searchTerm, setSearchTerm] = useState("");
+  // const [currentPage, setCurrentPage] = useState(1);
+
+  const onSearch = (value) => {
+    // setSearchTerm(value);
+  };
+  const { Search } = Input;
+
+  const sendSearchRequest = (value) => {
+    onSearch(value);
+    // setCurrentPage(1);
+    // refetch();
+  };
+  
 
   const tagColors = {
     'Selesai': 'green',
@@ -120,7 +136,7 @@ const DosenListDaftar = () => {
     },
     {
       key: '3',
-      name: 'Aswan Hari',
+      name: 'Kaget Budiman',
       nim: '1202230612',
       kelas: 'SI-19-46',
       ipk: '3,53',
@@ -128,8 +144,8 @@ const DosenListDaftar = () => {
       tags: ['SELESAI'],
     },
     {
-      key: '4',
-      name: 'Abdul Ujang',
+      key: '1',
+      name: 'Fredy Samboro',
       nim: '1202230143',
       kelas: 'SI-19-46',
       ipk: '3,61',
@@ -137,8 +153,8 @@ const DosenListDaftar = () => {
       tags: ['Ditolak'],
     },
     {
-      key: '5',
-      name: 'Arhanudin',
+      key: '2',
+      name: 'Asep Sumedang',
       nim: '1202230523',
       kelas: 'SI-19-46',
       ipk: '3,21',
@@ -146,7 +162,7 @@ const DosenListDaftar = () => {
       tags: ['Diproses'],
     },
     {
-      key: '6',
+      key: '3',
       name: 'Kaget Budiman',
       nim: '1202230612',
       kelas: 'SI-19-46',
@@ -155,10 +171,6 @@ const DosenListDaftar = () => {
       tags: ['SELESAI'],
     },
   ];
-  const filteredData = data.filter((item) =>
-    item.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-  
 
   return (
     <>
@@ -167,13 +179,18 @@ const DosenListDaftar = () => {
 				
           <div className="flex mt-7">
           <div className="w-full">
-          <Input
-              placeholder="Cari Nama ..."
-              allowClear
-              className="w-full col-span-3 sm:w-1/3 mb-2"
-              onChange={(e) => setSearchTerm(e.target.value)}
-              value={searchTerm}
-            />
+					<Search
+						placeholder="Cari Nama ..."
+						allowClear
+						onSearch={'sendSearchRequest'}
+						className="w-full col-span-3 sm:w-1/3 mb-2"
+						onChange={(e) => {''
+							// const value = e.target.value;
+							// setSearchTerm(value);
+						}}
+						// value={searchTerm}
+            value={""}
+					/>   
         </div>
         <div className="flex justify-end mb-5 mr-2">
             <button className='px-3 py-2 bg-blue-500 text-white flex flex-row items-center rounded-md'>
@@ -184,7 +201,7 @@ const DosenListDaftar = () => {
       </div>
       <Table
       columns={columns}
-      dataSource={filteredData}
+      dataSource={data}
       pagination
       scroll={{
         // x: 1500,
@@ -195,4 +212,4 @@ const DosenListDaftar = () => {
   )
 }
 
-export default DosenListDaftar;
+export default dosenListdaftar

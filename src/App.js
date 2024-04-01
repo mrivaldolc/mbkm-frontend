@@ -251,6 +251,7 @@ import UserEdit from "./pages/Pendaftar/user-edit";
 import UserDokumen from "./pages/Laporan/user-dokumen";
 import ListDokumen from "./pages/Laporan/user-listdokumen";
 import DosenDokumen from "./pages/Laporan/dosen-listdokumen";
+import EditDokumen from "./pages/Laporan/dosen-editdokumen";
 import DosenList from "./pages/Pendaftar/dosen-listdaftar";
 import Layout from "./components/layout/Layout";
 import NotFound from "./pages/404"; 
@@ -274,7 +275,8 @@ function App() {
                 <Route path="/user-dokumen" component={UserDokumen} />
                 <Route path="/user-listdokumen" component={ListDokumen} />
                 <Route path="/dosen-listdokumen" component={DosenDokumen} />
-                <Route path="/dosen-listdaftar" component={DosenList} />   
+                <Route path="/dosen-editdokumen" component={EditDokumen} />
+                <Route path="/dosen-listdaftar" component={DosenList} />
               </Switch>
             </Layout>
           </Route>

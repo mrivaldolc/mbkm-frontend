@@ -1,12 +1,16 @@
 import React from 'react'
 // import Layout from '../../components/layout/Layout';
+import { useState } from 'react';
 import { Table, Tag, Input } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom';
 
-const dosenListdokumen = () => {
-  const { Search } = Input;
+const DosenListDokumen = () => {
+
+    const [searchTerm, setSearchTerm] = useState('');
+
+    
 
     const tagColors = {
         'Selesai': 'green',
@@ -119,65 +123,69 @@ const dosenListdokumen = () => {
             nilai:'85'
           },
           {
-            key: '1',
-            name: 'Fredy Samboro',
+            key: '4',
+            name: 'Bayem Sore',
             nim: '1202230143',
             kelas: 'SI-19-46',
             tags: ['Ditolak'],
             nilai:'80'
           },
           {
-            key: '2',
-            name: 'Asep Sumedang',
+            key: '5',
+            name: 'Andi Maulana',
             nim: '1202230523',
             kelas: 'SI-19-46',
             tags: ['Diproses'],
             nilai:'80'
           },
           {
-            key: '3',
-            name: 'Kaget Budiman',
+            key: '6',
+            name: 'Farhan Mager',
             nim: '1202230612',
             kelas: 'SI-19-46',
             tags: ['SELESAI'],
             nilai:'80'
           },
           {
-            key: '1',
-            name: 'Fredy Samboro',
+            key: '7',
+            name: 'Boby Nasution',
             nim: '1202230143',
             kelas: 'SI-19-46',
             tags: ['Ditolak'],
           },
           {
-            key: '2',
-            name: 'Asep Sumedang',
+            key: '8',
+            name: 'Doni Arfa',
             nim: '1202230523',
             kelas: 'SI-19-46',
             tags: ['Diproses'],
           },
           {
-            key: '3',
-            name: 'Kaget Budiman',
+            key: '9',
+            name: 'Boyka Aghsa',
             nim: '1202230612',
             kelas: 'SI-19-46',
             tags: ['SELESAI'],
           },
           {
-            key: '1',
-            name: 'Fredy Samboro',
+            key: '10',
+            name: 'Ajun Jahar',
             nim: '1202230143',
             kelas: 'SI-19-46',
             tags: ['Ditolak'],
           },
           {
-            key: '2',
-            name: 'Asep Sumedang',
+            key: '11',
+            name: 'Agung Bahari',
             nim: '1202230523',
             kelas: 'SI-19-46',
             tags: ['Diproses'],
           },
       ];
+
+      const filteredData = data.filter((item) =>
+      item.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
   return (
     <>
         <div className="ml-3 ">
@@ -185,7 +193,7 @@ const dosenListdokumen = () => {
         
         <div className="flex mt-7">
           <div className="w-full">
-					<Search
+					{/* <Search
 						placeholder="Cari Nama ..."
 						allowClear
 						onSearch={'sendSearchRequest'}
@@ -196,7 +204,15 @@ const dosenListdokumen = () => {
 						}}
 						// value={searchTerm}
             value={""}
-					/>
+					/> */}
+
+            <Input
+              placeholder="Cari Nama ..."
+              allowClear
+              className="w-full col-span-3 sm:w-1/3 mb-2"
+              onChange={(e) => setSearchTerm(e.target.value)}
+              value={searchTerm}
+            />
           
         </div>
         <div className="flex justify-end mb-5 mr-2">
@@ -208,7 +224,7 @@ const dosenListdokumen = () => {
     </div>
       <Table
       columns={columns}
-      dataSource={data}
+      dataSource={filteredData}
       pagination={false}
       scroll={{
         // x: 1500,
@@ -219,4 +235,4 @@ const dosenListdokumen = () => {
   )
 }
 
-export default dosenListdokumen
+export default DosenListDokumen;
