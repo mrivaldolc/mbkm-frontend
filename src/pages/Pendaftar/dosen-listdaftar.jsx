@@ -5,8 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom';
 
+
 const DosenListDaftar = () => {
   const [searchTerm, setSearchTerm] = useState('');
+
+  const { Search } = Input;
 
   const tagColors = {
     'Selesai': 'green',
@@ -167,7 +170,7 @@ const DosenListDaftar = () => {
 				
           <div className="flex mt-7">
           <div className="w-full">
-          <Input
+          <Search
               placeholder="Cari Nama ..."
               allowClear
               className="w-full col-span-3 sm:w-1/3 mb-2"

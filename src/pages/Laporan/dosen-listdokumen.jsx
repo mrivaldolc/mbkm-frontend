@@ -10,8 +10,8 @@ const DosenListDokumen = () => {
 
     const [searchTerm, setSearchTerm] = useState('');
 
+    const { Search } = Input;
     
-
     const tagColors = {
         'Selesai': 'green',
         'Diproses': 'geekblue',
@@ -186,6 +186,7 @@ const DosenListDokumen = () => {
       const filteredData = data.filter((item) =>
       item.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
+      
   return (
     <>
         <div className="ml-3 ">
@@ -206,7 +207,7 @@ const DosenListDokumen = () => {
             value={""}
 					/> */}
 
-            <Input
+            <Search
               placeholder="Cari Nama ..."
               allowClear
               className="w-full col-span-3 sm:w-1/3 mb-2"

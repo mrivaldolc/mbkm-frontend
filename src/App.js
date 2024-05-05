@@ -248,11 +248,13 @@ import Profil from "./pages/Profil";
 import Pendaftaran from './pages/Pendaftar/user-index';
 import UserAdd from "./pages/Pendaftar/user-add";
 import UserEdit from "./pages/Pendaftar/user-edit";
+import DosenEdit from "./pages/Pendaftar/dosen-edit";
 import UserDokumen from "./pages/Laporan/user-dokumen";
 import ListDokumen from "./pages/Laporan/user-listdokumen";
 import DosenDokumen from "./pages/Laporan/dosen-listdokumen";
 import EditDokumen from "./pages/Laporan/dosen-editdokumen";
 import DosenList from "./pages/Pendaftar/dosen-listdaftar";
+import UserEditDokumen from "./pages/Laporan/user-editdokumen";
 import Layout from "./components/layout/Layout";
 import NotFound from "./pages/404"; 
 
@@ -272,7 +274,9 @@ function App() {
                 <Route path="/user-index" component={Pendaftaran} />
                 <Route path="/user-add" component={UserAdd} />
                 <Route path="/user-edit" component={UserEdit} />
+                <Route path="/dosen-edit" component={DosenEdit} />
                 <Route path="/user-dokumen" component={UserDokumen} />
+                <Route path="/user-editdokumen" component={UserEditDokumen} />
                 <Route path="/user-listdokumen" component={ListDokumen} />
                 <Route path="/dosen-listdokumen" component={DosenDokumen} />
                 <Route path="/dosen-editdokumen" component={EditDokumen} />

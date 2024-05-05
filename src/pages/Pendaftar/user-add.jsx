@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import Layout from '../../components/layout/Layout'
-import { Input, Button, Form, Row, Typography, message, Upload } from 'antd';
+import { Input, Button, Form, Row, Typography, message, Upload,Select } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
 const UserAdd = () => {
     const [nama, setNama] = useState('');
     const [nim, setNim] = useState('');
     const [kelas, setKelas] = useState('');
+    const [doswal, setDoswal] = useState('');
+    const [program, setProgram] = useState('');
+    const [ipk, setIpk] = useState('');
+    const [cv, setCv] = useState('');
 
     const { Text } = Typography;
 
@@ -33,6 +37,10 @@ const UserAdd = () => {
         console.log('Nama:', nama);
         console.log('NIM:', nim);
         console.log('Kelas:', kelas);
+        console.log('Dosen Wali:', doswal);
+        console.log('Program:', program);
+        console.log('IPK:', ipk);
+        console.log('CV:', cv);
       };
 
   return (
@@ -103,8 +111,46 @@ const UserAdd = () => {
             autoComplete="off"
             >
             <Form.Item
+                label="PROGRAM MBKM"
+                name="program"
+                hasFeedback
+                rules={[
+                    {
+                        required: true,
+                        message: "PROGRAM MBKM tidak boleh kosong!",
+                    },
+                ]}
+            >
+                <Select placeholder="Pilih Program MBKM">
+                    <Select.Option value="1">Kampus Mengajar</Select.Option>
+                    <Select.Option value="2">Magang MSIB</Select.Option>
+                    <Select.Option value="3">Studi Independen</Select.Option>
+                    <Select.Option value="4">Pertukaran Mahasiswa Merdeka</Select.Option>
+                    <Select.Option value="5">Wirausaha Merdeka</Select.Option>
+                    <Select.Option value="6">Indonesian International Student Mobility Awards</Select.Option>
+                    <Select.Option value="7">Praktisi Mengajar</Select.Option>
+                </Select>
+            </Form.Item>
+            <Form.Item
+                label="DOSEN WALI"
+                name="doswal"
+                hasFeedback
+                rules={[
+                    {
+                        required: true,
+                        message: "DOSEN WALI tidak boleh kosong!",
+                    },
+                ]}
+            >
+                <Select placeholder="Pilih Dosen Wali">
+                    <Select.Option value="agung">Agung</Select.Option>
+                    <Select.Option value="andi">Andi</Select.Option>
+                    <Select.Option value="budi">Budi</Select.Option>
+                </Select>
+            </Form.Item>
+            <Form.Item
                 label="NAMA"
-                name="name"
+                name="nama"
                 hasFeedback
                 rules={[
                 {
@@ -120,7 +166,7 @@ const UserAdd = () => {
             </Form.Item>
             <Form.Item
                 label="NIM"
-                name="name"
+                name="nim"
                 hasFeedback
                 rules={[
                 {
@@ -136,7 +182,7 @@ const UserAdd = () => {
             </Form.Item>
             <Form.Item
                 label="KELAS"
-                name="name"
+                name="kelas"
                 hasFeedback
                 rules={[
                 {
@@ -152,7 +198,7 @@ const UserAdd = () => {
             </Form.Item>           
             <Form.Item
                 label="IPK"
-                name="name"
+                name="ipk"
                 hasFeedback
                 rules={[
                 {
@@ -168,7 +214,7 @@ const UserAdd = () => {
             </Form.Item>
             <Form.Item
                 label="TOTAL SKS"
-                name="name"
+                name="sks"
                 hasFeedback
                 rules={[
                 {
@@ -184,7 +230,7 @@ const UserAdd = () => {
             </Form.Item>
             <Form.Item
                 label="CV"
-                name="name"
+                name="cv"
                 hasFeedback
                 rules={[
                 {
@@ -216,4 +262,4 @@ const UserAdd = () => {
   )
 }
 
-export default UserAdd
+export default UserAdd;
