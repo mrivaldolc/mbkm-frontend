@@ -1,11 +1,11 @@
 import React from 'react'
-import Layout from '../../components/layout/Layout'
+import Layout from '../../../components/layout/Layout'
 import { InboxOutlined } from '@ant-design/icons';
-import { Input, Button, Form, Row, Typography, message, Upload } from 'antd';
+import { Input, Button, Form, Row, Typography, message, Upload,Select } from 'antd';
 
 
 
-const UserEditDokumen = () => {
+const userIndex = () => {
   const { Dragger } = Upload;
   const props = {
     name: 'file',
@@ -32,7 +32,7 @@ const UserEditDokumen = () => {
   return (
     <>
       <div className="ml-3 mr-3">
-                <h1 className='font-bold text-2xl mb-8'>EDIT LAPORAN MBKM</h1>
+                <h1 className='font-bold text-2xl mb-8'>LAPORAN MBKM</h1>
 
       <Form
             requiredMark={false}
@@ -45,22 +45,6 @@ const UserEditDokumen = () => {
             autoComplete="off"
             >
             <Form.Item
-                label="Komentar"
-                name="nama"
-                hasFeedback
-                rules={[
-                {
-                    required: true,
-                    message: "Nama tidak boleh kosong!",
-                },
-                {
-                    validator: "",
-                    },
-                ]}
-            >
-            <Input placeholder="Masukkan Nama Mahasiswa" maxLength={50} />
-            </Form.Item>
-            {/* <Form.Item
                 label="NAMA"
                 name="name"
                 hasFeedback
@@ -75,7 +59,23 @@ const UserEditDokumen = () => {
                 ]}
             >
             <Input placeholder="Masukkan Nama Mahasiswa" maxLength={50} />
-            </Form.Item> */}
+            </Form.Item>
+            <Form.Item
+                label="JENIS LAPORAN"
+                name="doswal"
+                hasFeedback
+                rules={[
+                    {
+                        required: true,
+                        message: "DOSEN WALI tidak boleh kosong!",
+                    },
+                ]}
+            >
+                <Select placeholder="Pilih Jenis Laporan">
+                    <Select.Option value="bulan">Laporan Bulanan</Select.Option>
+                    <Select.Option value="akhir">Laporan Akhir</Select.Option>
+                </Select>
+            </Form.Item>
             <div className="div">
               <h1>File submissions :</h1>
               <h1 className='text-end'>Maximum file size: 10MB, maximum number of files: 1</h1>
@@ -108,4 +108,4 @@ const UserEditDokumen = () => {
   )
 }
 
-export default UserEditDokumen;
+export default userIndex

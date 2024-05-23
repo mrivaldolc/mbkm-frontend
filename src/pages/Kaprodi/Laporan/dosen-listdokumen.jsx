@@ -1,7 +1,7 @@
 import React from 'react'
 // import Layout from '../../components/layout/Layout';
 import { useState } from 'react';
-import { Table, Tag, Input } from 'antd';
+import { Table, Tag, Input, Select } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom';
@@ -9,13 +9,30 @@ import { NavLink } from 'react-router-dom';
 const DosenListDokumen = () => {
 
     const [searchTerm, setSearchTerm] = useState('');
+    const [filterKelas, setFilterKelas] = useState('');
+    const [filterStatus, setFilterStatus] = useState('');
+
+    const { Option } = Select;
 
     const { Search } = Input;
+
+    const handleKelasChange = value => {
+      setFilterKelas(value);
+    };
+
+    const handleStatusChange = value => {
+      if (value) {
+        setFilterStatus(value.toUpperCase());
+      } else {
+        setFilterStatus('');
+      }
+    };
+    
     
     const tagColors = {
-        'Selesai': 'green',
-        'Diproses': 'geekblue',
-        'Ditolak': 'volcano'
+        'SELESAI': 'green',
+        'DIPROSES': 'geekblue',
+        'DITOLAK': 'volcano'
       };
     
       const columns = [
@@ -39,6 +56,32 @@ const DosenListDokumen = () => {
             key: '1',
             width: 100,
           },
+          // {
+          //   title: 'KELAS',
+          //   dataIndex: 'kelas',
+          //   key: 'kelas',
+          //   filters: [
+          //     { text: 'SI-19-46', value: 'SI-19-46' },
+          //     { text: 'SI-19-41', value: 'SI-19-41' },
+          //     { text: 'SI-21-48', value: 'SI-21-48' },
+          //   ],
+          //   onFilter: (value, record) => record.kelas.includes(value),
+          //   filterDropdown: (
+          //     <div style={{ padding: 8 }}>
+          //       <Select
+          //         style={{ width: 120 }}
+          //         onChange={handleKelasChange}
+          //         value={filterKelas}
+          //       >
+          //         <Option value="">Semua Kelas</Option>
+          //         <Option value="SI-19-46">SI-19-46</Option>
+          //         <Option value="SI-19-41">SI-19-41</Option>
+          //         <Option value="SI-21-48">SI-21-48</Option>
+          //       </Select>
+          //     </div>
+          //   ),
+          //   render: kelas => <span>{kelas}</span>,
+          // },
         {
             title: 'FILE',
             key: 'operation',
@@ -103,22 +146,22 @@ const DosenListDokumen = () => {
             name: 'Fredy Samboro',
             nim: '1202230143',
             kelas: 'SI-19-46',
-            tags: ['Ditolak'],
+            tags: ['DITOLAK'],
             nilai:'80'
           },
           {
             key: '2',
             name: 'Asep Sumedang',
             nim: '1202230523',
-            kelas: 'SI-19-46',
-            tags: ['Diproses'],
+            kelas: 'SI-19-41',
+            tags: ['DIPROSES'],
             nilai:'90'
           },
           {
             key: '3',
             name: 'Kaget Budiman',
             nim: '1202230612',
-            kelas: 'SI-19-46',
+            kelas: 'SI-19-48',
             tags: ['SELESAI'],
             nilai:'85'
           },
@@ -127,22 +170,22 @@ const DosenListDokumen = () => {
             name: 'Bayem Sore',
             nim: '1202230143',
             kelas: 'SI-19-46',
-            tags: ['Ditolak'],
-            nilai:'80'
+            tags: ['DITOLAK'],
+            nilai:'83'
           },
           {
             key: '5',
             name: 'Andi Maulana',
             nim: '1202230523',
             kelas: 'SI-19-46',
-            tags: ['Diproses'],
+            tags: ['DIPROSES'],
             nilai:'80'
           },
           {
             key: '6',
             name: 'Farhan Mager',
             nim: '1202230612',
-            kelas: 'SI-19-46',
+            kelas: 'SI-19-48',
             tags: ['SELESAI'],
             nilai:'80'
           },
@@ -151,14 +194,16 @@ const DosenListDokumen = () => {
             name: 'Boby Nasution',
             nim: '1202230143',
             kelas: 'SI-19-46',
-            tags: ['Ditolak'],
+            tags: ['DITOLAK'],
+            nilai:'85'
           },
           {
             key: '8',
             name: 'Doni Arfa',
             nim: '1202230523',
-            kelas: 'SI-19-46',
-            tags: ['Diproses'],
+            kelas: 'SI-19-41',
+            tags: ['DIPROSES'],
+            nilai:'87'
           },
           {
             key: '9',
@@ -166,26 +211,47 @@ const DosenListDokumen = () => {
             nim: '1202230612',
             kelas: 'SI-19-46',
             tags: ['SELESAI'],
+            nilai:'89'
           },
           {
             key: '10',
             name: 'Ajun Jahar',
             nim: '1202230143',
             kelas: 'SI-19-46',
-            tags: ['Ditolak'],
+            tags: ['DITOLAK'],
+            nilai:'85'
           },
           {
             key: '11',
             name: 'Agung Bahari',
             nim: '1202230523',
-            kelas: 'SI-19-46',
-            tags: ['Diproses'],
+            kelas: 'SI-19-41',
+            tags: ['DIPROSES'],
+            nilai:'95'
           },
       ];
 
-      const filteredData = data.filter((item) =>
-      item.name.toLowerCase().includes(searchTerm.toLowerCase())
+      // const filteredData = data.filter((item) =>
+      // item.name.toLowerCase().includes(searchTerm.toLowerCase())
+      // );
+
+      // const filteredData = data.filter(item =>
+      //   item.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      //   (filterKelas ? item.kelas === filterKelas : true)
+      // );
+
+      // const filteredData = data.filter(item =>
+      //   item.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      //   (filterKelas ? item.kelas === filterKelas : true) &&
+      //   (filterStatus ? item.tags.includes(filterStatus.toLowerCase()) : true)
+      // );
+
+      const filteredData = data.filter(item =>
+        item.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+        (filterKelas ? item.kelas === filterKelas : true) &&
+        (filterStatus ? item.tags.includes(filterStatus) : true)
       );
+      
       
   return (
     <>
@@ -194,19 +260,6 @@ const DosenListDokumen = () => {
         
         <div className="flex mt-7">
           <div className="w-full">
-					{/* <Search
-						placeholder="Cari Nama ..."
-						allowClear
-						onSearch={'sendSearchRequest'}
-						className="w-full col-span-3 sm:w-1/3 mb-2"
-						onChange={(e) => {''
-							// const value = e.target.value;
-							// setSearchTerm(value);
-						}}
-						// value={searchTerm}
-            value={""}
-					/> */}
-
             <Search
               placeholder="Cari Nama ..."
               allowClear
@@ -214,13 +267,68 @@ const DosenListDokumen = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
               value={searchTerm}
             />
+            
+            {/* <Select
+            placeholder="KELAS"
+            onChange={(value) => {
+              if (value === "Semua") {
+              
+              } else {
           
+              }
+            }}
+            className="ml-3"
+            allowClear
+          >
+            <Option key="Semua" value="Semua">
+              All
+            </Option>
+          </Select>    */}
+          <Select
+              placeholder="KELAS"
+              onChange={handleKelasChange}
+              className="ml-3"
+              allowClear
+            >
+              <Option key="Semua" value="">
+                Semua Kelas
+              </Option>
+              <Option key="SI-19-46" value="SI-19-46">
+                SI-19-46
+              </Option>
+              <Option key="SI-19-41" value="SI-19-41">
+                SI-19-41
+              </Option>
+              <Option key="SI-19-48" value="SI-19-48">
+                SI-19-48
+              </Option>
+            </Select>
+            <Select
+              placeholder="STATUS"
+              onChange={handleStatusChange}
+              className="ml-3"
+              allowClear
+            >
+              <Option key="Semua" value="">
+                Semua Status
+              </Option>
+              <Option key="Diproses" value="Diproses">
+                DIPROSES
+              </Option>
+              <Option key="Selesai" value="Selesai">
+                SELESAI
+              </Option>
+              <Option key="Ditolak" value="Ditolak">
+                DITOLAK
+              </Option>
+            </Select>
         </div>
-        <div className="flex justify-end mb-5 mr-2">
+
+        {/* <div className="flex justify-end mb-5 mr-2">
             <button className='px-3 py-2 bg-blue-500 text-white flex flex-row items-center rounded-md'>
                 <div>TAMBAH</div>
             </button>
-        </div>
+        </div> */}
       </div>
     </div>
       <Table

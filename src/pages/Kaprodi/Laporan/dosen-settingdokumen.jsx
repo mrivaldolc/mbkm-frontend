@@ -1,43 +1,28 @@
 import React from 'react'
-import Layout from '../../components/layout/Layout';
+import Layout from '../../../components/layout/Layout';
 import { Table, Tag } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom';
 
-const userListdokumen = () => {
-    const tagColors = {
-        'Selesai': 'green',
-        'Diproses': 'geekblue',
-        'Ditolak': 'volcano'
-      };
-    
+const SettingDokumen = () => {    
       const columns = [
-        {
-            title: 'FILE',
-            key: 'operation',
+          {
+            title: 'JENIS LAPORAN',
+            key: 'jenis',
+            dataIndex: 'jenis',
             // fixed: 'right',
             width: 100,
-            render: () => <a>Laporan MBKM.pdf</a>,
+            // render: () => <a>Laporan Akhir</a>,
           },
-        {
-          title: 'STATUS',
-          dataIndex: 'tags',
-          key: '5',
-          width: 100,
-          render: (tags) => (
-            <span>
-              {tags.map((tag) => {
-                const color = tagColors[tag];
-                return (
-                  <Tag color={color} key={tag}>
-                    {tag.toUpperCase()}
-                  </Tag>
-                );
-              })}
-            </span>
-          ),
-        },
+          {
+            title: 'PERIODE',
+            key: 'periode',
+            dataIndex: 'periode',
+            // fixed: 'right',
+            width: 100,
+            // render: () => <a>Laporan Akhir</a>,
+          },
         {
           title: 'Action',
           key: 'operation',
@@ -68,17 +53,32 @@ const userListdokumen = () => {
       const data = [
         {
           key: '1',
-          name: 'Fredy Samboro',
-          tags: ['Diproses'],
+          jenis: 'Laporan Bulanan',
+          periode: 'Januari',
+        },
+        {
+          key: '2',
+          jenis: 'Laporan Bulanan',
+          periode: 'Februari',
+        },
+        {
+            key: '3',
+            jenis: 'Laporan Bulanan',
+            periode: 'Maret',
+        },
+        {
+          key: '4',
+          jenis: 'Laporan Akhir',
+          periode: '(Akhir)',
         },
       ];
   return (
     <>
         <div className="ml-3 ">
-            <h4 className="font-bold text-2xl">LAPORAN MBKM</h4>
+            <h4 className="font-bold text-2xl">SETTING LAPORAN MBKM</h4>
         </div>
         <div className="flex justify-end mb-5 mr-2">
-        <NavLink to="/user-dokumen">
+        <NavLink to="/dosen-addsettingdokumen">
           <button className='px-3 py-2 bg-blue-500 text-white flex flex-row items-center rounded-md'>
             <div>TAMBAH</div>
           </button>
@@ -97,4 +97,4 @@ const userListdokumen = () => {
   )
 }
 
-export default userListdokumen
+export default SettingDokumen;

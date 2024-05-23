@@ -159,21 +159,55 @@ const items = [
   {
     key: 'sub1',
     icon: <UserOutlined />,
-    label: 'Registrasi',
+    label: 'Mahasiswa',
     children: [
       getItem('Pendaftaran MBKM', '2', null, null, '/user-index'),
       // getItem('Status', '3', null, null, ''),
+      getItem('Laporan', '3', null, null, '/user-listdokumen'),
+      getItem('Jadwal Persentasi', '16', null, null, '/user-jadwalpersentasi'),
     ],
   },
-  getItem('Laporan', '4', <FileOutlined />, null, '/user-listdokumen'),
+  // getItem('Laporan', '4', <FileOutlined />, null, '/user-listdokumen'),
 
   {
     key: 'sub2',
     icon: <UserOutlined />,
-    label: 'Menu Dosen',
+    label: 'Menu Kaprodi',
     children: [
+      getItem('Dashboard', '4', null, null, '/dashboard'),
       getItem('Pendaftar MBKM', '5', null, null, '/dosen-listdaftar'),
       getItem('Laporan Peserta', '6', null, null, '/dosen-listdokumen'),
+      getItem('Setting Laporan', '7', null, null, '/dosen-settingdokumen'),
+      getItem('Setting Persentasi', '8', null, null, '/dosen-settingpersentasi'),
+    ],
+  },
+  {
+    key: 'sub3',
+    icon: <UserOutlined />,
+    label: 'Menu Dosen Wali',
+    children: [
+      getItem('Dashboard', '9', null, null, '/dashboard'),
+      getItem('Pendaftar MBKM', '10', null, null, '/dosen-listdaftar'),
+      getItem('Laporan Peserta', '11', null, null, '/dosen-listdokumen'),
+    ],
+  },
+  {
+    key: 'sub4',
+    icon: <UserOutlined />,
+    label: 'Menu Dosen Pembimbing',
+    children: [
+      getItem('Dashboard', '12', null, null, '/dashboard'),
+      getItem('Laporan Peserta', '13', null, null, '/dosen-listdokumen'),
+      getItem('Jadwal Persentasi', '17', null, null, '/pembimbing-jadwalpersentasi'),
+    ],
+  },
+  {
+    key: 'sub5',
+    icon: <UserOutlined />,
+    label: 'Menu Admin',
+    children: [
+      getItem('Dashboard', '14', null, null, '/dashboard'),
+      getItem('Data User', '15', null, null, '/dosen-listdokumen'),
     ],
   },
 ];

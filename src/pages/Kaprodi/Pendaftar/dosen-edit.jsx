@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Layout from '../../components/layout/Layout'
+import Layout from '../../../components/layout/Layout'
 import { Input, Button, Form, Row, Typography, message, Upload,Select } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
-const UserAdd = () => {
+const DosenEdit = () => {
     const [nama, setNama] = useState('');
     const [nim, setNim] = useState('');
     const [kelas, setKelas] = useState('');
@@ -46,7 +46,7 @@ const UserAdd = () => {
   return (
     <>
             <div className="ml-3 mr-3">
-                <h1 className='font-bold text-2xl mb-8'>DAFTAR MBKM</h1>
+                <h1 className='font-bold text-2xl mb-8'>DOSEN EDIT MBKM</h1>
             
             {/* <div className="w-full max-w-md mx-auto mt-10">
                 <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -262,4 +262,4 @@ const UserAdd = () => {
   )
 }
 
-export default UserAdd;
+export default DosenEdit;

@@ -245,16 +245,21 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Profil from "./pages/Profil";
-import Pendaftaran from './pages/Pendaftar/user-index';
-import UserAdd from "./pages/Pendaftar/user-add";
-import UserEdit from "./pages/Pendaftar/user-edit";
-import DosenEdit from "./pages/Pendaftar/dosen-edit";
-import UserDokumen from "./pages/Laporan/user-dokumen";
-import ListDokumen from "./pages/Laporan/user-listdokumen";
-import DosenDokumen from "./pages/Laporan/dosen-listdokumen";
-import EditDokumen from "./pages/Laporan/dosen-editdokumen";
-import DosenList from "./pages/Pendaftar/dosen-listdaftar";
-import UserEditDokumen from "./pages/Laporan/user-editdokumen";
+import Pendaftaran from './pages/Mahasiswa/Pendaftaran/user-index';
+import UserAdd from "./pages/Mahasiswa/Pendaftaran/user-add";
+import UserEdit from "./pages/Mahasiswa/Pendaftaran/user-edit";
+import DosenEdit from "./pages/Kaprodi/Pendaftar/dosen-edit";
+import UserDokumen from "./pages/Mahasiswa/Laporan/user-dokumen";
+import ListDokumen from "./pages/Mahasiswa/Laporan/user-listdokumen";
+import DosenDokumen from "./pages/Kaprodi/Laporan/dosen-listdokumen";
+import EditDokumen from "./pages/Kaprodi/Laporan/dosen-editdokumen";
+import DosenList from "./pages/Kaprodi/Pendaftar/dosen-listdaftar";
+import UserEditDokumen from "./pages/Mahasiswa/Laporan/user-editdokumen";
+import SettingDokumen from "./pages/Kaprodi/Laporan/dosen-settingdokumen";
+import DosenaddSetting from "./pages/Kaprodi/Laporan/dosen-addsettingdokumen";
+import JadwalPersentasi from "./pages/Mahasiswa/Jadwal/user-jadwalpersentasi";
+import SettingPersentasi from "./pages/Kaprodi/Jadwal/dosen-settingpersentasi";
+import AddPersentasi from "./pages/Kaprodi/Jadwal/dosen-addpersentasi";
 import Layout from "./components/layout/Layout";
 import NotFound from "./pages/404"; 
 
@@ -281,6 +286,11 @@ function App() {
                 <Route path="/dosen-listdokumen" component={DosenDokumen} />
                 <Route path="/dosen-editdokumen" component={EditDokumen} />
                 <Route path="/dosen-listdaftar" component={DosenList} />
+                <Route path="/dosen-settingdokumen" component={SettingDokumen} />
+                <Route path="/dosen-addsettingdokumen" component={DosenaddSetting} />
+                <Route path="/user-jadwalpersentasi" component={JadwalPersentasi} />
+                <Route path="/dosen-settingpersentasi" component={SettingPersentasi} />
+                <Route path="/dosen-addpersentasi" component={AddPersentasi} />
               </Switch>
             </Layout>
           </Route>

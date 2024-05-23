@@ -1,11 +1,11 @@
 import React from 'react'
-import Layout from '../../components/layout/Layout'
+import Layout from '../../../components/layout/Layout'
 import { InboxOutlined } from '@ant-design/icons';
 import { Input, Button, Form, Row, Typography, message, Upload } from 'antd';
 
 
 
-const userIndex = () => {
+const UserEditDokumen = () => {
   const { Dragger } = Upload;
   const props = {
     name: 'file',
@@ -32,7 +32,7 @@ const userIndex = () => {
   return (
     <>
       <div className="ml-3 mr-3">
-                <h1 className='font-bold text-2xl mb-8'>LAPORAN MBKM</h1>
+                <h1 className='font-bold text-2xl mb-8'>EDIT LAPORAN MBKM</h1>
 
       <Form
             requiredMark={false}
@@ -44,8 +44,24 @@ const userIndex = () => {
             colon={false}
             autoComplete="off"
             >
+            <Form.Item
+                label="Status"
+                name="nama"
+                hasFeedback
+                rules={[
+                {
+                    required: true,
+                    message: "Nama tidak boleh kosong!",
+                },
+                {
+                    validator: "",
+                    },
+                ]}
+            >
+            <Input placeholder="Masukkan Nama Mahasiswa" maxLength={50} />
+            </Form.Item>
             {/* <Form.Item
-                label="NAMA"
+                label="Catatan"
                 name="name"
                 hasFeedback
                 rules={[
@@ -60,6 +76,23 @@ const userIndex = () => {
             >
             <Input placeholder="Masukkan Nama Mahasiswa" maxLength={50} />
             </Form.Item> */}
+            <Form.Item
+                label="Catatan"
+                name="name"
+                hasFeedback
+                rules={[
+                    {
+                        required: true,
+                        message: "Nama tidak boleh kosong!",
+                    },
+                    {
+                        validator: () => {}, // Fungsi kosong sebagai validator
+                    },
+                ]}
+            >
+                <span>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with</span>
+            </Form.Item>
+
             <div className="div">
               <h1>File submissions :</h1>
               <h1 className='text-end'>Maximum file size: 10MB, maximum number of files: 1</h1>
@@ -92,4 +125,4 @@ const userIndex = () => {
   )
 }
 
-export default userIndex
+export default UserEditDokumen;

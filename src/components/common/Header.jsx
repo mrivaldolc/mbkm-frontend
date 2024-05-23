@@ -9,7 +9,7 @@ const Header = () => {
   };
 
   const handleLogout = () => {
-    // Implement logout logic here
+    localStorage.removeItem('accessToken');
   };
 
   return (
@@ -43,12 +43,14 @@ const Header = () => {
                 Profil
               </button>
                 </NavLink>
+              <NavLink to="/" onClick={handleLogout}>
               <button
                 className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-200 w-full text-left"
                 onClick={handleLogout}
               >
                 Logout
               </button>
+              </NavLink>
             </div>
           </div>
         )}

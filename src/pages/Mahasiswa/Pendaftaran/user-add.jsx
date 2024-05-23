@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Layout from '../../components/layout/Layout'
+import Layout from '../../../components/layout/Layout'
 import { Input, Button, Form, Row, Typography, message, Upload,Select } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
-const UserEdit = () => {
+const UserAdd = () => {
     const [nama, setNama] = useState('');
     const [nim, setNim] = useState('');
     const [kelas, setKelas] = useState('');
@@ -46,7 +46,7 @@ const UserEdit = () => {
   return (
     <>
             <div className="ml-3 mr-3">
-                <h1 className='font-bold text-2xl mb-8'>EDIT MBKM</h1>
+                <h1 className='font-bold text-2xl mb-8'>DAFTAR MBKM</h1>
             
             {/* <div className="w-full max-w-md mx-auto mt-10">
                 <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -130,6 +130,22 @@ const UserEdit = () => {
                     <Select.Option value="6">Indonesian International Student Mobility Awards</Select.Option>
                     <Select.Option value="7">Praktisi Mengajar</Select.Option>
                 </Select>
+            </Form.Item>
+            <Form.Item
+                label="EMAIL KAMPUS MERDEKA"
+                name="email"
+                hasFeedback
+                rules={[
+                {
+                    required: true,
+                    message: "Nama tidak boleh kosong!",
+                },
+                {
+                    validator: "",
+                    },
+                ]}
+            >
+            <Input placeholder="Masukkan Email Yang Terdaftar Di Kampus Medeka" maxLength={50} />
             </Form.Item>
             <Form.Item
                 label="DOSEN WALI"
@@ -229,6 +245,25 @@ const UserEdit = () => {
             <Input placeholder="Masukkan Total SKS Mahasiswa" maxLength={50} />
             </Form.Item>
             <Form.Item
+                label="KHS"
+                name="khs"
+                hasFeedback
+                rules={[
+                {
+                    required: true,
+                    message: "KHS tidak boleh kosong!",
+                },
+                {
+                    validator: "",
+                    },
+                ]}
+            >
+            {/* <Input placeholder="Masukkan IPK Mahasiswa" maxLength={50} /> */}
+            <Upload {...props}>
+                <Button icon={<UploadOutlined />}>Click to Upload</Button>
+            </Upload>
+            </Form.Item>
+            <Form.Item
                 label="CV"
                 name="cv"
                 hasFeedback
@@ -262,4 +297,4 @@ const UserEdit = () => {
   )
 }
 
-export default UserEdit;
+export default UserAdd;

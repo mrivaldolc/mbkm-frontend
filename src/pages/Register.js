@@ -4,8 +4,12 @@ import axios from 'axios';
 import { useHistory } from "react-router-dom";
 
 const Register = () => {
+  const [firstname, setFirstName] = useState('');
+  const [lastname, setLastName] = useState('');
+  const [nim, setNim] = useState('');
+  const [kelas, setKelas] = useState('');
+  const [nowa, setNowa] = useState('');
   const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [msg, setMsg] = useState('');
@@ -13,12 +17,24 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('FirstName:', firstname);
+    console.log('LastName:', lastname);
+    console.log('NIM:', nim);
+    console.log('Kelas:', kelas);
+    console.log('No WA:', nowa);
     console.log('Email:', email);
     console.log('Password:', password);
+    console.log('Confirm Password:', confirmPassword);
     try {
       const response = await axios.post('api/v1/user/register', {
+        firstname: firstname,
+        lastname: lastname,
+        nim: nim,
+        kelas: kelas,
+        nowa: nowa,
         email: email,
         password: password,
+        confirmPassword: confirmPassword,
       });
 
       // Check if the registration is successful based on the response status
@@ -92,9 +108,71 @@ const Register = () => {
         </div> */}
 
             <div className="mb-2">
-              {/* <label htmlFor="username" className="block text-sm font-semibold text-gray-600 mb-2">
-            Username
-          </label> */}
+              <input
+                type="text"
+                id="firstname"
+                name="firstname"
+                placeholder="First Name"
+                value={firstname}
+                onChange={(e) => setFirstName(e.target.value)}
+                className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-400"
+                required
+              />
+            </div>
+
+            <div className="mb-2">
+              <input
+                type="text"
+                id="lastname"
+                name="lastname"
+                placeholder="Last Name"
+                value={lastname}
+                onChange={(e) => setLastName(e.target.value)}
+                className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-400"
+                required
+              />
+            </div>
+
+            <div className="mb-2">
+              <input
+                type="text"
+                id="nim"
+                name="nim"
+                placeholder="NIM"
+                value={nim}
+                onChange={(e) => setNim(e.target.value)}
+                className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-400"
+                required
+              />
+            </div>
+
+            <div className="mb-2">
+              <input
+                type="text"
+                id="kelas"
+                name="kelas"
+                placeholder="Kelas (SI-41-04)"
+                value={kelas}
+                onChange={(e) => setKelas(e.target.value)}
+                className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-400"
+                required
+              />
+            </div>
+
+            <div className="mb-2">
+              <input
+                type="text"
+                id="nowa"
+                name="nowa"
+                placeholder="Nomor WhatsApp"
+                value={nowa}
+                onChange={(e) => setNowa(e.target.value)}
+                className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-400"
+                required
+              />
+            </div>
+
+            <div className="mb-2">
               <input
                 type="text"
                 id="email"
@@ -108,9 +186,6 @@ const Register = () => {
             </div>
 
             <div className="mb-2">
-              {/* <label htmlFor="password" className="block text-sm font-semibold text-gray-600 mb-2">
-            Password
-          </label> */}
               <input
                 type="password"
                 id="password"
@@ -122,8 +197,7 @@ const Register = () => {
                 required
               />
             </div>
-            {/* <div className="mb-2">
-           
+            <div className="mb-2">         
             <input
               type="password"
               id="confirmPassword"
@@ -134,7 +208,7 @@ const Register = () => {
               className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-400"
               required
             />
-          </div> */}
+          </div>
 
 
             <button
