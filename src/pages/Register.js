@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
+import { useAuth } from '../AuthContext';
 
 const Register = () => {
   const [firstname, setFirstName] = useState('');
@@ -14,6 +15,7 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [msg, setMsg] = useState('');
   const history = useHistory();
+  const { setIsAuthenticated } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,11 +29,11 @@ const Register = () => {
     console.log('Confirm Password:', confirmPassword);
     try {
       const response = await axios.post('api/v1/user/register', {
-        firstname: firstname,
-        lastname: lastname,
+        firstName: firstname,
+        lastName: lastname,
         nim: nim,
         kelas: kelas,
-        nowa: nowa,
+        nomorWhatsapp: nowa,
         email: email,
         password: password,
         confirmPassword: confirmPassword,
@@ -40,6 +42,7 @@ const Register = () => {
       // Check if the registration is successful based on the response status
       if (response.status === 200) {
         // If successful, navigate to "/"
+        setIsAuthenticated(true);
         history.push("/");
       } else {
         // Handle other status codes if needed
@@ -110,8 +113,8 @@ const Register = () => {
             <div className="mb-2">
               <input
                 type="text"
-                id="firstname"
-                name="firstname"
+                id="firstName"
+                name="firstName"
                 placeholder="First Name"
                 value={firstname}
                 onChange={(e) => setFirstName(e.target.value)}

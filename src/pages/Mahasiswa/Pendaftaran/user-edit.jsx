@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Layout from '../../../components/layout/Layout'
 import { Input, Button, Form, Row, Typography, message, Upload,Select } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
+import { useHistory } from 'react-router-dom';
 
 const UserEdit = () => {
     const [nama, setNama] = useState('');
@@ -13,6 +14,7 @@ const UserEdit = () => {
     const [cv, setCv] = useState('');
 
     const { Text } = Typography;
+    const history = useHistory();
 
     const props = {
         name: 'file',
@@ -42,6 +44,10 @@ const UserEdit = () => {
         console.log('IPK:', ipk);
         console.log('CV:', cv);
       };
+
+      const handleCancel = () => {
+        history.goBack(); // Navigasi ke halaman sebelumnya
+    };
 
   return (
     <>
@@ -248,7 +254,7 @@ const UserEdit = () => {
             </Upload>
             </Form.Item>
             <Row justify="end">
-                <Button onClick={""} style={{ marginRight: 10 }}>
+                <Button onClick={handleCancel} style={{ marginRight: 10 }}>
                         BATAL
                 </Button>
                 <Button type="primary" danger htmlType="submit">

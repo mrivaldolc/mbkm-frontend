@@ -1,18 +1,26 @@
-import React,{useState, useEffect} from 'react';
-import axios from 'axios';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import Layout from '../../../components/layout/Layout';
-import { Table, Tag,Input } from 'antd';
+import React,{useState} from 'react';
+import { Table, Input } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom';
+import { Calendar, theme, Modal } from 'antd';
 
 const SettingPersentasi = () => {
   const { Search } = Input;
-  const tagColors = {
-    'Selesai': 'green',
-    'Diproses': 'geekblue',
-    'Ditolak': 'volcano'
+  const { token } = theme.useToken();
+
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const handleModalOpen = () => {
+    setModalVisible(true);
+  };
+
+  const handleModalClose = () => {
+    setModalVisible(false);
+  };
+
+  const onPanelChange = (value, mode) => {
+    console.log(value.format('YYYY-MM-DD'), mode);
   };
 
   const columns = [
@@ -47,6 +55,15 @@ const SettingPersentasi = () => {
         dataIndex: 'jadwal',
         key: 'jadwal',
         width: 100,
+        render: (text, record) => (
+            <span
+              style={{ cursor: 'pointer' }}
+              className="text-blue-500"
+              onClick={handleModalOpen}
+            >
+              {text}
+            </span>
+          ),
       },
       {
         title: 'JENIS PERSENTASI',
@@ -95,7 +112,7 @@ const SettingPersentasi = () => {
       nim: '1202230143',
       kelas: 'SI-19-46',
       pembimbing: 'Prabu Sigantara',
-      jadwal: '21-11-24 / 16:30',
+      jadwal: 'SENIN, 21-November-2024 / 16:30',
       jenispersentasi: 'ONLINE',
       link: <a>https://meet.google.com/</a>,
     },
@@ -115,7 +132,7 @@ const SettingPersentasi = () => {
         nim: '1202230512',
         kelas: 'SI-19-41',
         pembimbing: 'Sigit Rabo',
-        jadwal: '21-11-24 / 16:30',
+        jadwal: 'SENIN, 21-November-2024 / 16:30',
         jenispersentasi: 'OFFLINE',
         link: 'TULT-0812',
       },
@@ -125,7 +142,7 @@ const SettingPersentasi = () => {
         nim: '1202230222',
         kelas: 'SI-19-44',
         pembimbing: 'Prabu Sigantara',
-        jadwal: '21-11-24 / 16:30',
+        jadwal: 'SENIN, 21-November-2024 / 16:30',
         jenispersentasi: 'ONLINE',
         link: <a>https://meet.google.com/</a>,
       },
@@ -135,7 +152,7 @@ const SettingPersentasi = () => {
         nim: '1202230612',
         kelas: 'SI-19-41',
         pembimbing: 'Sigit Rabo',
-        jadwal: '21-11-24 / 16:30',
+        jadwal: 'SENIN, 21-November-2024 / 16:30',
         jenispersentasi: 'OFFLINE',
         link: 'TULT-0812',
       },
@@ -145,7 +162,7 @@ const SettingPersentasi = () => {
         nim: '1202230623',
         kelas: 'SI-19-44',
         pembimbing: 'Prabu Sigantara',
-        jadwal: '21-11-24 / 16:30',
+        jadwal: 'SENIN, 21-November-2024 / 16:30',
         jenispersentasi: 'OFFLINE',
         link: 'TULT-0812',
       },
@@ -155,7 +172,7 @@ const SettingPersentasi = () => {
         nim: '1202230123',
         kelas: 'SI-19-47',
         pembimbing: 'Sigit Rabo',
-        jadwal: '21-11-24 / 16:30',
+        jadwal: 'SENIN, 21-November-2024 / 16:30',
         jenispersentasi: 'ONLINE',
         link: <a>https://meet.google.com/</a>,
       },
@@ -200,6 +217,17 @@ const SettingPersentasi = () => {
         y: 300,
       }}
     />
+    <Modal
+        title="Jadwal Presentasi"
+        visible={modalVisible}
+        onCancel={handleModalClose}
+        footer={null}
+        centered
+      >
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <Calendar fullscreen={false} onPanelChange={onPanelChange} />
+        </div>
+      </Modal>
     </>
   )
 }

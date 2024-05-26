@@ -8,32 +8,61 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom';
 
 const Pendaftaran = () => {
+  const [mahasiswaData, setMahasiswaData] = useState([]);
+
   const { Search } = Input;
   const tagColors = {
     'Selesai': 'green',
-    'Diproses': 'geekblue',
+    'DIPROSES': 'geekblue',
     'Ditolak': 'volcano'
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('/api/v1/mahasiswa');
+        console.log('API Response:', response.data); 
+        setMahasiswaData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const columns = [
     {
       title: 'NAMA',
       width: 100,
-      dataIndex: 'name',
-      key: 'name',
+      dataIndex: 'nama',
+      key: 'nama',
+      selector: (row) => row.name,
       // fixed: 'left',
     },
     {
       title: 'NIM',
       width: 100,
       dataIndex: 'nim',
-      key: 'age',
+      key: 'nim',
       // fixed: 'left',
     },
     {
       title: 'KELAS',
       dataIndex: 'kelas',
-      key: '1',
+      key: 'kelas',
+      width: 100,
+    },
+    {
+      title: 'DOSEN WALI',
+      dataIndex: 'dosenWali',
+      key: 'dosenWali',
+      width: 100,
+    },
+    {
+      title: 'PROGRAM MBKM',
+      dataIndex: 'programMbkm',
+      key: 'programMbkm',
       width: 100,
     },
     {
@@ -58,27 +87,30 @@ const Pendaftaran = () => {
     },
     {
       title: 'TOTAL SKS',
-      dataIndex: 'sks',
+      dataIndex: 'totalSks',
       key: '4',
       width: 100,
     },
     {
       title: 'STATUS',
-      dataIndex: 'tags',
+      dataIndex: 'status',
       key: '5',
       width: 100,
-      render: (tags) => (
-        <span>
-          {tags.map((tag) => {
-            const color = tagColors[tag];
-            return (
-              <Tag color={color} key={tag}>
-                {tag.toUpperCase()}
-              </Tag>
-            );
-          })}
-        </span>
+      render: status => (
+        <Tag color={tagColors[status]}>{status}</Tag>
       ),
+      // render: (status) => (
+      //   <span>
+      //     {status.map((tag) => {
+      //       const color = tagColors[tag];
+      //       return (
+      //         <Tag color={color} key={tag}>
+      //           {tag.toUpperCase()}
+      //         </Tag>
+      //       );
+      //     })}
+      //   </span>
+      // ),
     },
     {
       title: 'Action',
@@ -108,17 +140,17 @@ const Pendaftaran = () => {
   //     address: `London Park no. ${i}`,
   //   });
   // } 
-  const data = [
-    {
-      key: '1',
-      name: 'Fredy Samboro',
-      nim: '1202230143',
-      kelas: 'SI-19-46',
-      ipk: '3,61',
-      sks: '120',
-      tags: ['Diproses'],
-    },
-  ];
+  // const data = [
+  //   {
+  //     key: '1',
+  //     name: 'Fredy Samboro',
+  //     nim: '1202230143',
+  //     kelas: 'SI-19-46',
+  //     ipk: '3,61',
+  //     sks: '120',
+  //     tags: ['Diproses'],
+  //   },
+  // ];
 
   return (
     <>
@@ -152,7 +184,7 @@ const Pendaftaran = () => {
       </div>
       <Table
       columns={columns}
-      dataSource={data}
+      dataSource={mahasiswaData}
       pagination={false}
       scroll={{
         // x: 1500,

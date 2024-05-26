@@ -3,14 +3,25 @@ import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('accessToken');
+  const clearSessionToken = () => {
+    localStorage.removeItem('login', "ada");
+    // sessionStorage.removeItem('token'); // Menggunakan sessionStorage
+    // atau localStorage.removeItem('accessToken'); // Menggunakan localStorage
+    setTimeout(() => {
+      localStorage.removeItem('login', "ada");
+      setIsLoading(false); // Set loading back to false after timeout
+    }, 1000); // 1000 milliseconds = 1 second
   };
+
+  // const handleLogout = () => {
+  //   localStorage.removeItem('accessToken');
+  // };
 
   return (
     // bg-gray-800
@@ -38,18 +49,26 @@ const Header = () => {
 
               <button
                 className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-200 w-full text-left"
-                onClick={handleLogout}
+                onClick={''}
                 >
                 Profil
               </button>
                 </NavLink>
-              <NavLink to="/" onClick={handleLogout}>
-              <button
-                className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-200 w-full text-left"
-                onClick={handleLogout}
-              >
-                Logout
-              </button>
+                <NavLink to="/" onClick={clearSessionToken}>
+                {isLoading ? (
+                  <button
+                    className="block px-4 py-2 text-sm text-gray-800 w-full text-left cursor-not-allowed"
+                    disabled
+                  >
+                    Logging out...
+                  </button>
+                ) : (
+                  <button
+                    className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-200 w-full text-left"
+                  >
+                    Logout
+                  </button>
+                )}
               </NavLink>
             </div>
           </div>

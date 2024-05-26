@@ -29,6 +29,14 @@ const userListdokumen = () => {
             width: 100,
             // render: () => <a>Laporan Akhir</a>,
           },
+          {
+            title: 'BATAS PENGUMPULAN',
+            key: 'batas',
+            dataIndex: 'batas',
+            // fixed: 'right',
+            width: 100,
+            // render: () => <a>Laporan Akhir</a>,
+          },
         {
           title: 'STATUS',
           dataIndex: 'tags',
@@ -79,18 +87,21 @@ const userListdokumen = () => {
           key: '1',
           file: 'Laporan MBKM Bulanan Agustus.pdf',
           jenis: 'Laporan Bulanan',
+          batas: '17-08-2024 / 00.00',
           tags: ['Selesai'],
         },
         {
           key: '2',
           file: 'Laporan MBKM Bulanan September.pdf',
           jenis: 'Laporan Bulanan',
+          batas: '13-09-2024 / 00.00',
           tags: ['Diproses'],
         },
         {
           key: '3',
           file: 'Laporan MBKM Akhir.pdf',
           jenis: 'Laporan Akhir',
+          batas: '05-10-2024 / 00.00',
           tags: ['DITOLAK'],
     
         },

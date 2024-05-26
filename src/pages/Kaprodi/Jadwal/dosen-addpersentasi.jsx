@@ -142,10 +142,10 @@ const AddPersentasi = () => {
                 ]}
             >
             <Space direction="vertical" size={12}>
-                <RangePicker
+                <DatePicker
                 showTime={{
                     format: 'HH:mm',
-                }}
+                  }}
                 format="YYYY-MM-DD HH:mm"
                 onChange={(value, dateString) => {
                     console.log('Selected Time: ', value);

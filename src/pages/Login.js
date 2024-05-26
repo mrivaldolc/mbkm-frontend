@@ -1,22 +1,35 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
+import axios from '../axiosConfig';
 import { useHistory } from 'react-router-dom';
+import { useAuth } from '../AuthContext';
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const history = useHistory();
+  const { setIsAuthenticated } = useAuth();
+
+  useEffect(() => {
+    const token = localStorage.getItem('login');
+    if (token) {
+      history.push('/dashboard');
+    }
+  }, [history]);
 
   const Auth = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('api/v1/user/login', {
+      const response = await axios.post('/api/v1/user/login', {
         email: email,
         password: password,
-      });
+      }, { withCredentials: true});
 
       if (response.status === 200) {
+        localStorage.setItem('isAuthenticatd', 'true');
+        setIsAuthenticated(true);
         history.push('/dashboard');
       } else {
         setError('Login failed');
