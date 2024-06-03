@@ -14,13 +14,16 @@ import DosenDokumen from "./pages/Kaprodi/Laporan/dosen-listdokumen";
 import EditDokumen from "./pages/Kaprodi/Laporan/dosen-editdokumen";
 import DosenList from "./pages/Kaprodi/Pendaftar/dosen-listdaftar";
 import UserEditDokumen from "./pages/Mahasiswa/Laporan/user-editdokumen";
-import SettingDokumen from "./pages/Kaprodi/Laporan/dosen-settingdokumen";
-import DosenaddSetting from "./pages/Kaprodi/Laporan/dosen-addsettingdokumen";
-import JadwalPersentasi from "./pages/Mahasiswa/Jadwal/user-jadwalpersentasi";
-import SettingPersentasi from "./pages/Kaprodi/Jadwal/dosen-settingpersentasi";
-import AddPersentasi from "./pages/Kaprodi/Jadwal/dosen-addpersentasi";
+import SettingDokumen from "./pages/Kaprodi/Manager/Laporan/dosen-settingdokumen";
+import DosenaddSetting from "./pages/Kaprodi/Manager/Laporan/dosen-addsettingdokumen";
+import JadwalPersentasi from "./pages/Mahasiswa/Presentasi/user-jadwalpersentasi";
+import SettingPersentasi from "./pages/Kaprodi/Manager/Presentasi/dosen-settingpersentasi";
+import AddPersentasi from "./pages/Kaprodi/Manager/Presentasi/dosen-addpersentasi";
 import Layout from "./components/layout/Layout";
 import NotFound from "./pages/404"; 
+import SettingPendaftaran from "./pages/Kaprodi/Manager/Pendaftar/dosen-settingpendaftaran";
+import DosenaddPendaftaran from "./pages/Kaprodi/Manager/Pendaftar/dosen-addpendaftaran";
+import DoseneditPendaftaran from "./pages/Kaprodi/Manager/Pendaftar/dosen-editpendaftaran";
 
 function App() {
   return (
@@ -50,6 +53,9 @@ function App() {
                 <Route path="/user-jadwalpersentasi" component={JadwalPersentasi} />
                 <Route path="/dosen-settingpersentasi" component={SettingPersentasi} />
                 <Route path="/dosen-addpersentasi" component={AddPersentasi} />
+                <Route path="/dosen-settingpendaftaran" component={SettingPendaftaran} />
+                <Route path="/dosen-addpendaftaran" component={DosenaddPendaftaran} /> 
+                <Route path="/dosen-editpendaftaran" component={DoseneditPendaftaran} />
               </Switch>
             </Layout>
           </Route>

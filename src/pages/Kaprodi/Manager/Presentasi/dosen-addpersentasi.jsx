@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Layout from '../../../components/layout/Layout'
+import Layout from '../../../../components/layout/Layout'
 import { Input, Button, Form, Row, Typography, message, Upload,Select, DatePicker, Space } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
@@ -76,7 +76,7 @@ const AddPersentasi = () => {
                     },
                 ]}
             >
-            <Input placeholder="Masukkan Nama Mahasiswa" maxLength={50} />
+            <h1>Fredy Samboro</h1>
             </Form.Item>
             <Form.Item
                 label="NIM"
@@ -92,7 +92,7 @@ const AddPersentasi = () => {
                     },
                 ]}
             >
-            <Input placeholder="Masukkan NIM Mahasiswa" maxLength={50} />
+            <h1>1202230143</h1>
             </Form.Item>
             <Form.Item
                 label="KELAS"
@@ -108,7 +108,7 @@ const AddPersentasi = () => {
                     },
                 ]}
             >
-            <Input placeholder="Masukkan Kelas" maxLength={50} />
+            <h1>SI-19-46</h1>
             </Form.Item>  
             <Form.Item
                 label="DOSEN PEMBIMBING"
@@ -122,13 +122,13 @@ const AddPersentasi = () => {
                 ]}
             >
                 <Select placeholder="Pilih Dosen Pembimbing">
-                    <Select.Option value="agung">Agung</Select.Option>
-                    <Select.Option value="andi">Andi</Select.Option>
+                    <Select.Option value="agung">Prabu Sigantara</Select.Option>
+                    <Select.Option value="andi">Sigit Rabo</Select.Option>
                     <Select.Option value="budi">Budi</Select.Option>
                 </Select>
             </Form.Item> 
             <Form.Item
-                label="TANGGAL PRESENTASI"
+                label="JADWAL PRESENTASI"
                 name="name"
                 hasFeedback
                 rules={[
@@ -188,6 +188,32 @@ const AddPersentasi = () => {
             >
             <Input placeholder="Masukkan Link Presentasi" maxLength={50} />
             </Form.Item>
+            <Form.Item
+                label="NILAI AKADEMIK"
+                name="dosenpembimbing"
+                hasFeedback
+                rules={[
+                    {
+                        required: true,
+                        message: "DOSEN PEMBIMBING tidak boleh kosong!",
+                    },
+                ]}
+            >
+                <Input placeholder="Masukkan Nilai Akademik" maxLength={50} />
+            </Form.Item> 
+            <Form.Item
+                label="NILAI LAPANGAN"
+                name="dosenpembimbing"
+                hasFeedback
+                rules={[
+                    {
+                        required: true,
+                        message: "DOSEN PEMBIMBING tidak boleh kosong!",
+                    },
+                ]}
+            >
+                <Input placeholder="Masukkan Nilai Lapangan" maxLength={50} />
+            </Form.Item> 
             <Row justify="end">
                 <Button onClick={""} style={{ marginRight: 10 }}>
                         BATAL

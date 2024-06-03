@@ -37,6 +37,20 @@ const DosenListDokumen = () => {
     
       const columns = [
         {
+          title: 'JENIS LAPORAN',
+          width: 100,
+          dataIndex: 'jenis',
+          key: 'age',
+          // fixed: 'left',
+        },
+        {
+          title: 'PERIODE',
+          width: 100,
+          dataIndex: 'periode',
+          key: 'age',
+          // fixed: 'left',
+        },
+        {
             title: 'NAMA',
             width: 100,
             dataIndex: 'name',
@@ -85,9 +99,16 @@ const DosenListDokumen = () => {
         {
             title: 'FILE',
             key: 'operation',
+            dataIndex: 'file',
             // fixed: 'right',
             width: 100,
-            render: () => <a>Laporan MBKM.pdf</a>,
+          },
+          {
+            title: 'BATAS PENGUMPULAN',
+            width: 100,
+            dataIndex: 'batas',
+            key: 'age',
+            // fixed: 'left',
           },
         {
           title: 'STATUS',
@@ -106,12 +127,6 @@ const DosenListDokumen = () => {
               })}
             </span>
           ),
-        },
-        {
-          title: 'NILAI',
-          dataIndex: 'nilai',
-          key: '1',
-          width: 100,
         },
         {
           title: 'Action',
@@ -143,70 +158,100 @@ const DosenListDokumen = () => {
       const data = [
         {
             key: '1',
+            jenis: 'Laporan Bulanan',
+            periode: 'Januari',
             name: 'Fredy Samboro',
             nim: '1202230143',
             kelas: 'SI-19-46',
+            file: <a>Laporan MBKM Bulanan Januari.pdf</a>,
+            batas: '17-08-2024 / 00.00',
             tags: ['DITOLAK'],
             nilai:'80'
           },
           {
             key: '2',
+            jenis: 'Laporan Bulanan',
+            periode: 'Januari',
             name: 'Asep Sumedang',
             nim: '1202230523',
             kelas: 'SI-19-41',
+            file: <a>Laporan MBKM Bulanan Januari.pdf</a>,
+            batas: '17-08-2024 / 00.00',
             tags: ['DIPROSES'],
             nilai:'90'
           },
           {
             key: '3',
+            jenis: 'Laporan Bulanan',
+            periode: 'Januari',
             name: 'Kaget Budiman',
             nim: '1202230612',
             kelas: 'SI-19-48',
+            batas: '17-08-2024 / 00.00',
             tags: ['SELESAI'],
             nilai:'85'
           },
           {
             key: '4',
+            jenis: 'Laporan Bulanan',
+            periode: 'Januari',
             name: 'Bayem Sore',
             nim: '1202230143',
             kelas: 'SI-19-46',
+            file: 'Laporan MBKM Bulanan Januari.pdf',
+            batas: '17-08-2024 / 00.00',
             tags: ['DITOLAK'],
             nilai:'83'
           },
           {
             key: '5',
+            jenis: 'Laporan Bulanan',
+            periode: 'Januari',
             name: 'Andi Maulana',
             nim: '1202230523',
             kelas: 'SI-19-46',
+            file: 'Laporan MBKM Bulanan Januari.pdf',
+            batas: '17-08-2024 / 00.00',
             tags: ['DIPROSES'],
             nilai:'80'
           },
           {
             key: '6',
+            jenis: 'Laporan Bulanan',
+            periode: 'Januari',
             name: 'Farhan Mager',
             nim: '1202230612',
             kelas: 'SI-19-48',
+            file: 'Laporan MBKM Bulanan Januari.pdf',
             tags: ['SELESAI'],
             nilai:'80'
           },
           {
             key: '7',
+            jenis: 'Laporan Bulanan',
+            periode: 'Januari',
             name: 'Boby Nasution',
             nim: '1202230143',
             kelas: 'SI-19-46',
+            file: <a>Laporan MBKM Bulanan Januari.pdf</a>,
             tags: ['DITOLAK'],
             nilai:'85'
           },
           {
             key: '8',
+            jenis: 'Laporan Bulanan',
+            periode: 'Januari',
             name: 'Doni Arfa',
             nim: '1202230523',
             kelas: 'SI-19-41',
+            batas: '17-08-2024 / 00.00',
             tags: ['DIPROSES'],
             nilai:'87'
           },
           {
             key: '9',
+            jenis: 'Laporan Bulanan',
+            periode: 'Januari',
             name: 'Boyka Aghsa',
             nim: '1202230612',
             kelas: 'SI-19-46',
@@ -215,6 +260,8 @@ const DosenListDokumen = () => {
           },
           {
             key: '10',
+            jenis: 'Laporan Bulanan',
+            periode: 'Januari',
             name: 'Ajun Jahar',
             nim: '1202230143',
             kelas: 'SI-19-46',
@@ -223,6 +270,8 @@ const DosenListDokumen = () => {
           },
           {
             key: '11',
+            jenis: 'Laporan Bulanan',
+            periode: 'Januari',
             name: 'Agung Bahari',
             nim: '1202230523',
             kelas: 'SI-19-41',

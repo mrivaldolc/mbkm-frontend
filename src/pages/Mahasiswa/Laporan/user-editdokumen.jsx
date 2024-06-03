@@ -1,11 +1,16 @@
 import React from 'react'
 import Layout from '../../../components/layout/Layout'
 import { InboxOutlined } from '@ant-design/icons';
-import { Input, Button, Form, Row, Typography, message, Upload } from 'antd';
+import { Input, Button, Form, Row, Typography, message, Upload, Tag } from 'antd';
 
 
 
 const UserEditDokumen = () => {
+  const tagColors = {
+    'Selesai': 'green',
+    'Diproses': 'geekblue',
+    'Ditolak': 'volcano'
+  };
   const { Dragger } = Upload;
   const props = {
     name: 'file',
@@ -58,7 +63,65 @@ const UserEditDokumen = () => {
                     },
                 ]}
             >
-            <Input placeholder="Masukkan Nama Mahasiswa" maxLength={50} />
+            {/* <span>
+              {tags.map((tag) => {
+                const color = tagColors[tag];
+                return (
+                  <Tag color={color} key={tag}>
+                    {tag.toUpperCase()}
+                  </Tag>
+                );
+              })}
+            </span> */}
+            <span>DIPROSES</span>
+            </Form.Item>
+            <Form.Item
+                label="Jenis Laporan"
+                name="nama"
+                hasFeedback
+                rules={[
+                {
+                    required: true,
+                    message: "Nama tidak boleh kosong!",
+                },
+                {
+                    validator: "",
+                    },
+                ]}
+            >
+            <span>Laporan Bulanan</span>
+            </Form.Item>
+            <Form.Item
+                label="Periode"
+                name="nama"
+                hasFeedback
+                rules={[
+                {
+                    required: true,
+                    message: "Nama tidak boleh kosong!",
+                },
+                {
+                    validator: "",
+                    },
+                ]}
+            >
+            <span>Januari</span>
+            </Form.Item>
+            <Form.Item
+                label="Batas Pengumpulan"
+                name="nama"
+                hasFeedback
+                rules={[
+                {
+                    required: true,
+                    message: "Nama tidak boleh kosong!",
+                },
+                {
+                    validator: "",
+                    },
+                ]}
+            >
+            <span>17-08-2024 / 00.00</span>
             </Form.Item>
             {/* <Form.Item
                 label="Catatan"

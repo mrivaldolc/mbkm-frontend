@@ -55,9 +55,21 @@ const JadwalPersentasi = () => {
         width: 100,
       },
       {
-        title: 'LINK PERSENTASI',
+        title: 'LOKASI PERSENTASI',
         dataIndex: 'link',
         key: 'link',
+        width: 100,
+      },
+      {
+        title: 'NILAI AKADEMIK',
+        dataIndex: 'nilailapangan',
+        key: 'nilailapangan',
+        width: 100,
+      },
+      {
+        title: 'NILAI LAPANGAN',
+        dataIndex: 'nilaiakademik',
+        key: 'nilaiakademik',
         width: 100,
       },
   ];
@@ -81,15 +93,17 @@ const JadwalPersentasi = () => {
       jenispersentasi: 'ONLINE',
     //   link: 'https://meet.google.com/',
       link: <a>https://meet.google.com/</a>,
+      nilaiakademik: '95',
+      nilailapangan: '98'
     },
   ];
 
   return (
     <>
-      <div className="ml-3">
+      <div className="ml-3 mb-16">
             <h4 className="font-bold text-2xl">JADWAL PERSENTASI MBKM</h4>
         
-        <div className="flex mt-7">
+        {/* <div className="flex mt-7">
           <div className="w-full">
 					<Search
 						placeholder="Cari Nama ..."
@@ -112,7 +126,7 @@ const JadwalPersentasi = () => {
           </button>
         </NavLink>
         </div>
-        </div>
+        </div> */}
       </div>
       <Table
       columns={columns}

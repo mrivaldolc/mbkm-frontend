@@ -80,6 +80,13 @@ const Pendaftaran = () => {
       render: () => <a>KLIK</a>,
     },
     {
+      title: 'PORTOFOLIO',
+      key: 'operation',
+      // fixed: 'right',
+      width: 100,
+      render: () => <a>KLIK</a>,
+    },
+    {
       title: 'IPK',
       dataIndex: 'ipk',
       key: '3',

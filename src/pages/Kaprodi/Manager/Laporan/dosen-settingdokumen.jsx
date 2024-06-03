@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../../../components/layout/Layout';
+import Layout from '../../../../components/layout/Layout';
 import { Table, Tag } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
@@ -19,6 +19,14 @@ const SettingDokumen = () => {
             title: 'PERIODE',
             key: 'periode',
             dataIndex: 'periode',
+            // fixed: 'right',
+            width: 100,
+            // render: () => <a>Laporan Akhir</a>,
+          },
+          {
+            title: 'BATAS PENGUMPULAN',
+            key: 'batas',
+            dataIndex: 'batas',
             // fixed: 'right',
             width: 100,
             // render: () => <a>Laporan Akhir</a>,
@@ -55,21 +63,25 @@ const SettingDokumen = () => {
           key: '1',
           jenis: 'Laporan Bulanan',
           periode: 'Januari',
+          batas: '17-08-2024 / 00.00',
         },
         {
           key: '2',
           jenis: 'Laporan Bulanan',
           periode: 'Februari',
+          batas: '17-08-2024 / 00.00',
         },
         {
             key: '3',
             jenis: 'Laporan Bulanan',
             periode: 'Maret',
+            batas: '17-08-2024 / 00.00',
         },
         {
           key: '4',
           jenis: 'Laporan Akhir',
           periode: '(Akhir)',
+          batas: '17-08-2024 / 00.00',
         },
       ];
   return (

@@ -78,6 +78,18 @@ const SettingPersentasi = () => {
         width: 100,
       },
       {
+        title: 'NILAI AKADEMIK',
+        dataIndex: 'nilailapangan',
+        key: 'nilailapangan',
+        width: 100,
+      },
+      {
+        title: 'NILAI LAPANGAN',
+        dataIndex: 'nilaiakademik',
+        key: 'nilaiakademik',
+        width: 100,
+      },
+      {
         title: 'Action',
         key: 'operation',
         // fixed: 'right',
@@ -115,6 +127,8 @@ const SettingPersentasi = () => {
       jadwal: 'SENIN, 21-November-2024 / 16:30',
       jenispersentasi: 'ONLINE',
       link: <a>https://meet.google.com/</a>,
+      nilaiakademik: '98',
+      nilailapangan: '95',
     },
     {
         key: '2',
@@ -200,11 +214,11 @@ const SettingPersentasi = () => {
           
         </div>
         <div className="flex justify-end mb-5 mr-2">
-        <NavLink to="/dosen-addpersentasi">
+        {/* <NavLink to="/dosen-addpersentasi">
           <button className='px-3 py-2 bg-blue-500 text-white flex flex-row items-center rounded-md'>
             <div>TAMBAH</div>
           </button>
-        </NavLink>
+        </NavLink> */}
         </div>
         </div>
       </div>

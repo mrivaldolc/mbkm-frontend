@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../../../components/layout/Layout'
+import Layout from '../../../../components/layout/Layout'
 import { InboxOutlined } from '@ant-design/icons';
 import { Input, Button, Form, Row, DatePicker, Space, Select } from 'antd';
 
@@ -78,8 +78,8 @@ const DosenaddSetting = () => {
             </Select>
             </Form.Item>
             <Form.Item
-                label="TANGGAL PENGUMPULAN"
-                name="name"
+                label="BATAS PENGUMPULAN"
+                name="batas"
                 hasFeedback
                 rules={[
                 {

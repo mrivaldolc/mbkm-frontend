@@ -110,6 +110,26 @@ const DosenEdit = () => {
             colon={false}
             autoComplete="off"
             >
+                <Form.Item
+                label="STATUS"
+                name="status"
+                hasFeedback
+                rules={[
+                {
+                    required: true,
+                    message: "Status tidak boleh kosong!",
+                },
+                {
+                    validator: "",
+                    },
+                ]}
+            >
+            <Select placeholder="Pilih Status">
+                    <Select.Option value="bulanan">DITERIMA</Select.Option>
+                    <Select.Option value="akhir">DIPROSES</Select.Option>
+                    <Select.Option value="akhir">DITOLAK</Select.Option>
+                </Select>
+            </Form.Item>
             <Form.Item
                 label="PROGRAM MBKM"
                 name="program"
@@ -121,15 +141,7 @@ const DosenEdit = () => {
                     },
                 ]}
             >
-                <Select placeholder="Pilih Program MBKM">
-                    <Select.Option value="1">Kampus Mengajar</Select.Option>
-                    <Select.Option value="2">Magang MSIB</Select.Option>
-                    <Select.Option value="3">Studi Independen</Select.Option>
-                    <Select.Option value="4">Pertukaran Mahasiswa Merdeka</Select.Option>
-                    <Select.Option value="5">Wirausaha Merdeka</Select.Option>
-                    <Select.Option value="6">Indonesian International Student Mobility Awards</Select.Option>
-                    <Select.Option value="7">Praktisi Mengajar</Select.Option>
-                </Select>
+                <h1>asd</h1>
             </Form.Item>
             <Form.Item
                 label="DOSEN WALI"
@@ -142,11 +154,7 @@ const DosenEdit = () => {
                     },
                 ]}
             >
-                <Select placeholder="Pilih Dosen Wali">
-                    <Select.Option value="agung">Agung</Select.Option>
-                    <Select.Option value="andi">Andi</Select.Option>
-                    <Select.Option value="budi">Budi</Select.Option>
-                </Select>
+                <h1>Nanang Maulana</h1>
             </Form.Item>
             <Form.Item
                 label="NAMA"
@@ -162,7 +170,7 @@ const DosenEdit = () => {
                     },
                 ]}
             >
-            <Input placeholder="Masukkan Nama Mahasiswa" maxLength={50} />
+            <h1>Fredy Samboro</h1>
             </Form.Item>
             <Form.Item
                 label="NIM"
@@ -178,7 +186,7 @@ const DosenEdit = () => {
                     },
                 ]}
             >
-            <Input placeholder="Masukkan NIM Mahasiswa" maxLength={50} />
+            <h1>1202230143</h1>
             </Form.Item>
             <Form.Item
                 label="KELAS"
@@ -194,7 +202,7 @@ const DosenEdit = () => {
                     },
                 ]}
             >
-            <Input placeholder="Masukkan Kelas" maxLength={50} />
+            <h1>SI-19-46</h1>
             </Form.Item>           
             <Form.Item
                 label="IPK"
@@ -210,7 +218,7 @@ const DosenEdit = () => {
                     },
                 ]}
             >
-            <Input placeholder="Masukkan Total SKS Mahasiswa" maxLength={50} />
+            <h1>3,61</h1>
             </Form.Item>
             <Form.Item
                 label="TOTAL SKS"
@@ -226,7 +234,23 @@ const DosenEdit = () => {
                     },
                 ]}
             >
-            <Input placeholder="Masukkan Total SKS Mahasiswa" maxLength={50} />
+            <h1>120</h1>
+            </Form.Item>
+            <Form.Item
+                label="KHS"
+                name="cv"
+                hasFeedback
+                rules={[
+                {
+                    required: true,
+                    message: "CV tidak boleh kosong!",
+                },
+                {
+                    validator: "",
+                    },
+                ]}
+            >
+            <a>KLIK</a>
             </Form.Item>
             <Form.Item
                 label="CV"
@@ -242,10 +266,39 @@ const DosenEdit = () => {
                     },
                 ]}
             >
-            {/* <Input placeholder="Masukkan IPK Mahasiswa" maxLength={50} /> */}
-            <Upload {...props}>
-                <Button icon={<UploadOutlined />}>Click to Upload</Button>
-            </Upload>
+            <a>KLIK</a>
+            </Form.Item>
+            <Form.Item
+                label="PORTOFOLIO"
+                name="cv"
+                hasFeedback
+                rules={[
+                {
+                    required: true,
+                    message: "CV tidak boleh kosong!",
+                },
+                {
+                    validator: "",
+                    },
+                ]}
+            >
+            <a>KLIK</a>
+            </Form.Item>
+            <Form.Item
+                label="CATATAN"
+                name="catatan"
+                hasFeedback
+                rules={[
+                {
+                    required: true,
+                    message: "Catatan tidak boleh kosong!",
+                },
+                {
+                    validator: "",
+                    },
+                ]}
+            >
+                <Input placeholder="Masukkan Catatan" maxLength={50} />
             </Form.Item>
             <Row justify="end">
                 <Button onClick={""} style={{ marginRight: 10 }}>

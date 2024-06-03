@@ -46,7 +46,27 @@ const DosenListDaftar = () => {
       // fixed: 'left',
     },
     {
+      title: 'PROGRAM MBKM',
+      width: 100,
+      dataIndex: 'doswal',
+      key: 'doswal',
+      // fixed: 'left',
+    },
+    {
+      title: 'KHS',
+      key: 'operation',
+      // fixed: 'right',
+      width: 100,
+      render: () => <a>KLIK</a>,
+    },{
       title: 'CV',
+      key: 'operation',
+      // fixed: 'right',
+      width: 100,
+      render: () => <a>KLIK</a>,
+    },
+    {
+      title: 'PORTOFOLIO',
       key: 'operation',
       // fixed: 'right',
       width: 100,
@@ -191,11 +211,11 @@ const DosenListDaftar = () => {
             />
         </div>
         <div className="flex justify-end mb-5 mr-2">
-          <NavLink to="/dosen-addpendaftaran">
+          {/* <NavLink to="/dosen-addpendaftaran">
             <button className='px-3 py-2 bg-blue-500 text-white flex flex-row items-center rounded-md'>
               <div>TAMBAH</div>
             </button>
-        </NavLink>
+        </NavLink> */}
         </div>
         </div>
       </div>

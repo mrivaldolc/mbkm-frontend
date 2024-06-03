@@ -178,7 +178,8 @@ const items = [
       getItem('Pendaftar MBKM', '5', null, null, '/dosen-listdaftar'),
       getItem('Laporan Peserta', '6', null, null, '/dosen-listdokumen'),
       getItem('Setting Laporan', '7', null, null, '/dosen-settingdokumen'),
-      getItem('Setting Persentasi', '8', null, null, '/dosen-settingpersentasi'),
+      getItem('Setting Presentasi', '8', null, null, '/dosen-settingpersentasi'),
+      getItem('Setting Pendaftaran', '18', null, null, '/dosen-settingpendaftaran'),
     ],
   },
   {

@@ -22,9 +22,25 @@ const userListdokumen = () => {
             // render: () => <a>Laporan MBKM.pdf</a>,
           },
           {
+            title: 'FILE TTD',
+            key: 'filettd',
+            dataIndex: 'filettd',
+            // fixed: 'right',
+            width: 100,
+            // render: () => <a>Laporan Akhir</a>,
+          },
+          {
             title: 'JENIS LAPORAN',
             key: 'jenis',
             dataIndex: 'jenis',
+            // fixed: 'right',
+            width: 100,
+            // render: () => <a>Laporan Akhir</a>,
+          },
+          {
+            title: 'PERIODE',
+            key: 'periode',
+            dataIndex: 'periode',
             // fixed: 'right',
             width: 100,
             // render: () => <a>Laporan Akhir</a>,
@@ -85,22 +101,34 @@ const userListdokumen = () => {
       const data = [
         {
           key: '1',
-          file: 'Laporan MBKM Bulanan Agustus.pdf',
+          file: <a>Laporan MBKM Bulanan Januari.pdf</a>,
+          filettd: <a>TTD_Laporan MBKM Bulanan Januari.pdf</a>,
           jenis: 'Laporan Bulanan',
+          periode: 'Januari',
           batas: '17-08-2024 / 00.00',
           tags: ['Selesai'],
         },
         {
           key: '2',
-          file: 'Laporan MBKM Bulanan September.pdf',
+          file: 'Laporan MBKM Bulanan Februari.pdf',
           jenis: 'Laporan Bulanan',
+          periode: 'Februari',
           batas: '13-09-2024 / 00.00',
           tags: ['Diproses'],
         },
         {
           key: '3',
+          file: '',
+          jenis: 'Laporan Bulanan',
+          periode: 'Maret',
+          batas: '13-09-2024 / 00.00',
+          tags: ['Diproses'],
+        },
+        {
+          key: '4',
           file: 'Laporan MBKM Akhir.pdf',
           jenis: 'Laporan Akhir',
+          periode: '(Akhir)',
           batas: '05-10-2024 / 00.00',
           tags: ['DITOLAK'],
     
@@ -108,16 +136,16 @@ const userListdokumen = () => {
       ];
   return (
     <>
-        <div className="ml-3 ">
+        <div className="ml-3 mb-16">
             <h4 className="font-bold text-2xl">LAPORAN MBKM</h4>
         </div>
-        <div className="flex justify-end mb-5 mr-2">
+        {/* <div className="flex justify-end mb-5 mr-2">
         <NavLink to="/user-dokumen">
           <button className='px-3 py-2 bg-blue-500 text-white flex flex-row items-center rounded-md'>
             <div>TAMBAH</div>
           </button>
       </NavLink>
-        </div>
+        </div> */}
       <Table
       columns={columns}
       dataSource={data}
